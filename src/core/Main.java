@@ -1,8 +1,6 @@
 package core;
 
 import org.json.JSONException;
-
-import gui.MusicPlayer;
 import gui.Window;
 
 public class Main {

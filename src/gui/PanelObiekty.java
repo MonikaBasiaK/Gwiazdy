@@ -15,12 +15,12 @@ public class PanelObiekty extends JPanel {
     private JLabel wiek = new JLabel("Wiek");
     private JLabel o_glowny = new JLabel("Obiekt glowny");
     private JLabel o_obiegu = new JLabel("Okres biegu");
-    static JTextField tnazwa = new JTextField("");
-    static JTextField tmasa = new JTextField("");
-    static JTextField tsrednica = new JTextField("");
-    static JTextField twiek = new JTextField("");
-    static JTextField tglowny = new JTextField("");
-    static JTextField tobiegu = new JTextField("");
+    public static JTextField tnazwa = new JTextField("");
+    public static JTextField tmasa = new JTextField("");
+    public static JTextField tsrednica = new JTextField("");
+    public static JTextField twiek = new JTextField("");
+    public static JTextField tglowny = new JTextField("");
+    public static JTextField tobiegu = new JTextField("");
        
     public static JButton back = new JButton("<| BACK");
     static JButton zapisz = new JButton("ZAPISZ");

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gwiazdy">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/java-json.jar!/" />
+      <root url="jar://$PROJECT_DIR$/gson-2.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -13,7 +13,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 import javax.swing.ImageIcon;
@@ -155,7 +154,7 @@ public class Utilities {
 		int c;
 		istream = System.in;
 		File outFile =  new File("Data.txt");		 
-		System.out.println("Type characters to write in File – Press Ctrl+z to end ");
+		System.out.println("Type characters to write in File ï¿½ Press Ctrl+z to end ");
 		try {
 			ostream = new FileOutputStream(outFile);
 			while ((c = istream.read()) != EOF)
@@ -225,7 +224,7 @@ public class Utilities {
 		   try {
 		     fr = new FileReader(file);
 		   } catch (FileNotFoundException e) {
-		       System.out.println("B£¥D PRZY OTWIERANIU PLIKU!");
+		       System.out.println("Bï¿½ï¿½D PRZY OTWIERANIU PLIKU!");
 		       System.exit(1);
 		   }
 
@@ -255,7 +254,7 @@ public class Utilities {
 			    	 linia = linia.substring(gdzieEnd+1);
 			        }
 		    	 	 
-		    	 //4. Maj¹c powy¿sze dane tworze nowy obiekt i dodaje go do odpowiedniej listy
+		    	 //4. Majï¿½c powyï¿½sze dane tworze nowy obiekt i dodaje go do odpowiedniej listy
 		    	 
 		    	 if(typ.equals(Obiekt.OBIEKT)){
 		    		 Obiekt Obj = null;
@@ -305,7 +304,7 @@ public class Utilities {
 		    	
 		     }
 		    } catch (IOException e) {
-		        System.out.println("B£¥D ODCZYTU Z PLIKU!");
+		        System.out.println("Bï¿½ï¿½D ODCZYTU Z PLIKU!");
 		        System.exit(2);
 		   }
 
@@ -313,7 +312,7 @@ public class Utilities {
 		   try {
 		     fr.close();
 		    } catch (IOException e) {
-		         System.out.println("B£¥D PRZY ZAMYKANIU PLIKU!");
+		         System.out.println("Bï¿½ï¿½D PRZY ZAMYKANIU PLIKU!");
 		         System.exit(3);
 		        }
 		/*
@@ -337,7 +336,7 @@ public class Utilities {
 		   try {
 		     fr = new FileReader("gwiazdy.txt");
 		   } catch (FileNotFoundException e) {
-		       System.out.println("B£¥D PRZY OTWIERANIU PLIKU!");
+		       System.out.println("Bï¿½ï¿½D PRZY OTWIERANIU PLIKU!");
 		       System.exit(1);
 		   }
 
@@ -349,7 +348,7 @@ public class Utilities {
 		        daneZPliku += linia+"\n";
 		     }
 		    } catch (IOException e) {
-		        System.out.println("B£¥D ODCZYTU Z PLIKU!");
+		        System.out.println("Bï¿½ï¿½D ODCZYTU Z PLIKU!");
 		        System.exit(2);
 		   }
 
@@ -357,7 +356,7 @@ public class Utilities {
 		   try {
 		     fr.close();
 		    } catch (IOException e) {
-		         System.out.println("B£¥D PRZY ZAMYKANIU PLIKU!");
+		         System.out.println("Bï¿½ï¿½D PRZY ZAMYKANIU PLIKU!");
 		         System.exit(3);
 		        }
 		   return daneZPliku;

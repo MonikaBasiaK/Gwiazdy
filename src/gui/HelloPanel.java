@@ -4,6 +4,7 @@ import core.AddNew;
 import core.Gwiazdy;
 import core.Main;
 import core.Utilities;
+import zwyklamateria.obiekty.Gwiazda;
 import zwyklamateria.obiekty.Obiekt;
 import zwyklamateria.struktury.Galaktyka;
 import zwyklamateria.struktury.Struktura;
@@ -145,7 +146,7 @@ public class HelloPanel extends JPanel{
         		
         		//System.out.println(json);
         		
-        		json.replaceAll("\"", "\'");
+        		//json.replaceAll("\"", "\'");
         		System.out.println(json);
         		
         		
@@ -153,10 +154,14 @@ public class HelloPanel extends JPanel{
                
         		//==============from Json ========================
         		//obiektListType =  new TypeToken<ArrayList<Obiekt>>().getType();
-        		//Gwiazdy.obiektyTest = Utilities.gson.fromJson(json, obiektListType);
+                //Gwiazdy.obiektyTest = Utilities.gson.fromJson(json, ArrayList<Obiekt>);
+
+
+                //w zmiennej json musi być gwiazda w postaci JSON
+                //Gwiazda gw1 = Utilities.gson.fromJson(json, Gwiazda.class);
         		
         		//ArrayList<Obiekt> newObiektList = Utilities.gson.fromJson(json, obiektListType);
-        		
+
         		System.exit(0);
             }
         });
