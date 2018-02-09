@@ -1,17 +1,12 @@
 package zwyklamateria.struktury;
 
-import java.io.Serializable;
-
-public class Gromada extends Struktura  implements Serializable{
-	
+public class Gromada extends Struktura{
+	String identity;
 	int rozmiar;
-	public Gromada(){}
-	
-	/*public Gromada(){
-	super();
-	System.out.println("Rozmiar(w latach swietlnych): ");
-	Scanner odczyt = new Scanner(System.in);
-	this.rozmiar = odczyt.nextInt();
+	public Gromada(String name, int rozmiar){
+		super(name);
+		this.identity = Struktura.GROMADA;
+		this.rozmiar = rozmiar;
 	}
-	*/
+	
 }

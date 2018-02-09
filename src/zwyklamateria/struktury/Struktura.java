@@ -1,17 +1,10 @@
 package zwyklamateria.struktury;
 
-public class Struktura {
+public class Struktura{
 
-	String name;
-	
-	/*public static int STRUKTURA = 2;
-	public static int SPADAM_STAD = 0;
-	public static int GWIAZDOZBIOR = 1;
-	public static int GALAKTYKA = 2;
-	public static int GRUPA = 3;
-	public static int GROMADA = 4;
-	public static int SUPERGROMADA = 5;*/
-	
+	protected String name;
+	//public static String identity;
+		
 	public static int NAZWA = 0;
 	public static int ROZMIAR = 1;
 	
@@ -23,20 +16,10 @@ public class Struktura {
 	public static String SUPERGROMADA = "SuperGromada";
 	
 	
-public Struktura(){}
-
-	/*public Struktura(){
-		
-		Scanner odczyt = new Scanner(System.in);
-		System.out.println("Nazwa: ");
-		this.name = odczyt.nextLine();
-		
-	}*/
-
-	public String showDane(){
-		return "nazwa:"+this.name+",";
+	public Struktura(String name){
+		this.name = name;		
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}

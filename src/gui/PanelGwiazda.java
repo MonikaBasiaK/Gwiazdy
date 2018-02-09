@@ -1,46 +1,29 @@
 package gui;
 
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
-import core.AddNew;
-import core.Gwiazdy;
 import core.Utilities;
-import zwyklamateria.obiekty.*;
+import gui.listeners.SaveGwiazdaActionListener;
 
 public class PanelGwiazda extends PanelObiekty{
 	
 	private JLabel gwiazdozbior = new JLabel("Gwiazdozbior");
-    private JTextField tgwiazdozbior = new JTextField("");
-    private Font g = new Font("Gabriola", Font.BOLD, 20);
-    
+    public static JTextField tgwiazdozbior = new JTextField("");
+     
     public PanelGwiazda(){
 		super();
 		
-		
-		this.gwiazdozbior.setFont(g);
-    
-        this.gwiazdozbior.setBounds(x/2 -130, 340, 150, 30);
-        this.tgwiazdozbior.setBounds(x/2 -10, 340, 200, 30);
+		PanelGwiazda.tgwiazdozbior.setText("");
+		this.gwiazdozbior.setFont(Utilities.g);
+		this.gwiazdozbior.setBounds(x/2 -130, 340, 150, 30);
+        tgwiazdozbior.setBounds(x/2 -10, 340, 200, 30);
+       
+        Utilities.zapisz.addActionListener(new SaveGwiazdaActionListener());
         
-        PanelObiekty.zapisz.addActionListener(new ActionListener(){
-        	public void actionPerformed(ActionEvent e) {
-        	/*System.out.println(tgwiazdozbior.getText());*/
-        		Gwiazdy.obiekty.add(new Gwiazda(tnazwa.getText(), Float.parseFloat( tmasa.getText()), 
-    				Double.parseDouble(tsrednica.getText()), Integer.parseInt(twiek.getText()), 
-    				tglowny.getText(), Float.parseFloat(tobiegu.getText()), tgwiazdozbior.getText()));
-    			
-        		tgwiazdozbior.setText("");
-        		
-        	}
-        }
-        );
-        
-        add(this.gwiazdozbior);
-        add(this.tgwiazdozbior);
+        add(gwiazdozbior);
+        add(tgwiazdozbior);
+        add(Utilities.zapisz);
+        add(Utilities.panelImgLab);
         
 	}
 

@@ -1,13 +1,13 @@
 package zwyklamateria.struktury;
-import java.io.Serializable;
 
-public class Grupa extends Struktura  implements Serializable{
+public class Grupa extends Struktura{
 		
-	//protected ArrayList<String> galaktyki = new ArrayList<>();	
+	String galaktyki, identity;	
 	
-	public Grupa()
+	public Grupa(String name, String galaktyki)
 	{
-		super();
+		super(name);
+		this.identity = Struktura.GRUPA;
+		this.galaktyki = galaktyki;
 	}
-	
 }

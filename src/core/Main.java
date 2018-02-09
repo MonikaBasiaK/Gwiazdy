@@ -6,16 +6,11 @@ import gui.Window;
 public class Main {
 
 	public static Window w = null;
-	//public static MusicPlayer mp = null;
 	
-	public static void main(String[] args) throws JSONException {
+	public static void main(String[] args) throws JSONException, ClassNotFoundException {
 
-		//System.out.println("Witaj w katalogu :-)\n");
-		//AddNew egzemplarz = new AddNew();
-		//egzemplarz.run();
-		
 		w = new Window();
-
-		}
+		Utilities.odczytZPlikuJson("gwiazdy.txt");
+	}
 
 }

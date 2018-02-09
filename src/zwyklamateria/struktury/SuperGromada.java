@@ -1,12 +1,12 @@
 package zwyklamateria.struktury;
 
-import java.io.Serializable;
-
-public class SuperGromada extends Struktura  implements Serializable{
+public class SuperGromada extends Struktura{
 	
-	public SuperGromada(){}
-	/*public SuperGromada(){
-		super();
-
-	}*/
+	String identity, opis;
+	public SuperGromada(String name, String opis){
+		super(name);
+		this.identity = Struktura.SUPERGROMADA;
+		this.opis = opis;
+	}
+	
 }

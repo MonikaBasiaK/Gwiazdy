@@ -1,12 +1,101 @@
-zwyklamateria.obiekty.Gwiazda nazwa:Gwiazdka, masa:1.0, srednica:11.0, wiek:111, obiekt glowny:g, okres obiegu:1111.0,
-zwyklamateria.obiekty.Kometa nazwa:kometa, masa:2.0, srednica:22.0, wiek:222, obiekt glowny:k, okres obiegu:2222.0,
-zwyklamateria.obiekty.Meteoroid nazwa:meteo, masa:3.0, srednica:33.0, wiek:333, obiekt glowny:m, okres obiegu:3333.0,
-zwyklamateria.obiekty.Planeta nazwa:planet, masa:4.0, srednica:44.0, wiek:444, obiekt glowny:p, okres obiegu:4444.0,
-zwyklamateria.obiekty.Satelita nazwa:satelita, masa:9.0, srednica:99.0, wiek:999, obiekt glowny:s, okres obiegu:9999.0,
-zwyklamateria.obiekty.Gwiazda nazwa:GwIaZKKK, masa:12.0, srednica:13.0, wiek:14, obiekt glowny:kkk, okres obiegu:15.0,
-zwyklamateria.obiekty.Gwiazda nazwa:GGGG, masa:0.0, srednica:10.0, wiek:100, obiekt glowny:oooo, okres obiegu:1000.0,
-zwyklamateria.obiekty.Gwiazda nazwa:Gxxx, masa:7.0, srednica:77.0, wiek:777, obiekt glowny:jj, okres obiegu:77.0,
-zwyklamateria.obiekty.Gwiazda nazwa:GVVVV, masa:2.0, srednica:1.0, wiek:2, obiekt glowny:kk, okres obiegu:11.0,
-zwyklamateria.obiekty.Gwiazda nazwa:Ghhh, masa:4.0, srednica:4.0, wiek:4, obiekt glowny:gh, okres obiegu:4.0,
-zwyklamateria.obiekty.Gwiazda nazwa:GitGwiazda, masa:1.0, srednica:1.0, wiek:1, obiekt glowny:w, okres obiegu:11.0,
-zwyklamateria.obiekty.Gwiazda nazwa:GTAKAKAKA, masa:22222.0, srednica:3333333.0, wiek:3333, obiekt glowny:hhhh, okres obiegu:33334.0,
+{"identity":"Meteoroid","nazwa":"meteo1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"w","okres_obiegu":1.0}
+{"identity":"Kometa","nazwa":"meteo1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"w","okres_obiegu":1.0}
+{"ksiezyce":"w","identity":"Planeta","nazwa":"planet1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"m","okres_obiegu":1.0}
+{"identity":"Meteoroid","nazwa":"planet1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"m","okres_obiegu":1.0}
+{"identity":"Kometa","nazwa":"planet1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"m","okres_obiegu":1.0}
+{"ksiezyce":"ss","identity":"Planeta","nazwa":"planet2","masa":2.0,"srednica":2.0,"wiek":2,"obiekt_glowny":"e","okres_obiegu":2.0}
+{"ksiezyce":"ss","identity":"Planeta","nazwa":"planet2","masa":2.0,"srednica":2.0,"wiek":2,"obiekt_glowny":"e","okres_obiegu":2.0}
+{"identity":"Meteoroid","nazwa":"planet2","masa":2.0,"srednica":2.0,"wiek":2,"obiekt_glowny":"e","okres_obiegu":2.0}
+{"identity":"Kometa","nazwa":"planet2","masa":2.0,"srednica":2.0,"wiek":2,"obiekt_glowny":"e","okres_obiegu":2.0}
+{"identity":"PlanetaKarlowata","nazwa":"karlowata1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"w","okres_obiegu":1.0}
+{"ksiezyce":"ss","identity":"Planeta","nazwa":"karlowata1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"w","okres_obiegu":1.0}
+{"ksiezyce":"ss","identity":"Planeta","nazwa":"karlowata1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"w","okres_obiegu":1.0}
+{"identity":"Meteoroid","nazwa":"karlowata1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"w","okres_obiegu":1.0}
+{"identity":"Kometa","nazwa":"karlowata1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"w","okres_obiegu":1.0}
+{"identity":"Planetoida","nazwa":"planetoid1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"l","okres_obiegu":1.0}
+{"identity":"PlanetaKarlowata","nazwa":"planetoid1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"l","okres_obiegu":1.0}
+{"ksiezyce":"ss","identity":"Planeta","nazwa":"planetoid1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"l","okres_obiegu":1.0}
+{"ksiezyce":"ss","identity":"Planeta","nazwa":"planetoid1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"l","okres_obiegu":1.0}
+{"identity":"Meteoroid","nazwa":"planetoid1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"l","okres_obiegu":1.0}
+{"identity":"Kometa","nazwa":"planetoid1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"l","okres_obiegu":1.0}
+{"identity":"Planetoida","nazwa":"satelit1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"k","okres_obiegu":1.0}
+{"identity":"PlanetaKarlowata","nazwa":"satelit1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"k","okres_obiegu":1.0}
+{"ksiezyce":"ss","identity":"Planeta","nazwa":"satelit1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"k","okres_obiegu":1.0}
+{"ksiezyce":"ss","identity":"Planeta","nazwa":"satelit1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"k","okres_obiegu":1.0}
+{"identity":"Meteoroid","nazwa":"satelit1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"k","okres_obiegu":1.0}
+{"identity":"Kometa","nazwa":"satelit1","masa":1.0,"srednica":1.0,"wiek":1,"obiekt_glowny":"k","okres_obiegu":1.0}
+{"identity":"SuperGromada","opis":"s","name":"super1"}
+{"identity":"SuperGromada","opis":"d","name":"super2"}
+{"identity":"SuperGromada","opis":"d","name":"super2"}
+{"identity":"SuperGromada","opis":"d","name":"super3"}
+{"identity":"SuperGromada","opis":"d","name":"super3"}
+{"identity":"SuperGromada","opis":"d","name":"super3"}
+{"identity":"SuperGromada","opis":"w","name":"super4"}
+{"identity":"SuperGromada","opis":"w","name":"super4"}
+{"identity":"SuperGromada","opis":"w","name":"super4"}
+{"identity":"SuperGromada","opis":"w","name":"super4"}
+{"identity":"SuperGromada","opis":"e","name":"super5"}
+{"identity":"SuperGromada","opis":"e","name":"super5"}
+{"identity":"SuperGromada","opis":"e","name":"super5"}
+{"identity":"SuperGromada","opis":"e","name":"super5"}
+{"identity":"SuperGromada","opis":"e","name":"super5"}
+{"identity":"SuperGromada","opis":"f","name":"super6"}
+{"identity":"SuperGromada","opis":"f","name":"super6"}
+{"identity":"SuperGromada","opis":"f","name":"super6"}
+{"identity":"SuperGromada","opis":"f","name":"super6"}
+{"identity":"SuperGromada","opis":"f","name":"super6"}
+{"identity":"SuperGromada","opis":"f","name":"super6"}
+{"identity":"SuperGromada","opis":"h","name":"super7"}
+{"identity":"SuperGromada","opis":"h","name":"super7"}
+{"identity":"SuperGromada","opis":"h","name":"super7"}
+{"identity":"SuperGromada","opis":"h","name":"super7"}
+{"identity":"SuperGromada","opis":"h","name":"super7"}
+{"identity":"SuperGromada","opis":"h","name":"super7"}
+{"identity":"SuperGromada","opis":"h","name":"super7"}
+{"identity":"Gromada","rozmiar":1,"name":"grom1"}
+{"identity":"Gromada","rozmiar":2,"name":"grom2"}
+{"identity":"Gromada","rozmiar":2,"name":"grom2"}
+{"identity":"Gromada","rozmiar":3,"name":"grom3"}
+{"identity":"Gromada","rozmiar":3,"name":"grom3"}
+{"identity":"Gromada","rozmiar":3,"name":"grom3"}
+{"identity":"Gromada","rozmiar":4,"name":"grom4"}
+{"identity":"Gromada","rozmiar":4,"name":"grom4"}
+{"identity":"Gromada","rozmiar":4,"name":"grom4"}
+{"identity":"Gromada","rozmiar":4,"name":"grom4"}
+{"galaktyki":"e","identity":"Grupa","name":"grup1"}
+{"galaktyki":"2","identity":"Grupa","name":"grup2"}
+{"galaktyki":"2","identity":"Grupa","name":"grup2"}
+{"galaktyki":"r","identity":"Grupa","name":"grup33"}
+{"galaktyki":"r","identity":"Grupa","name":"grup33"}
+{"galaktyki":"r","identity":"Grupa","name":"grup33"}
+{"identity":"Galaktyka","grubosc":1,"szacowana_ilosc_gwiazd":1,"name":"gal1"}
+{"galaktyki":"r","identity":"Grupa","name":"gal1"}
+{"galaktyki":"r","identity":"Grupa","name":"gal1"}
+{"galaktyki":"r","identity":"Grupa","name":"gal1"}
+{"identity":"Galaktyka","grubosc":2,"szacowana_ilosc_gwiazd":2,"name":"gal2"}
+{"identity":"Galaktyka","grubosc":2,"szacowana_ilosc_gwiazd":2,"name":"gal2"}
+{"galaktyki":"r","identity":"Grupa","name":"gal2"}
+{"galaktyki":"r","identity":"Grupa","name":"gal2"}
+{"galaktyki":"r","identity":"Grupa","name":"gal2"}
+{"identity":"Galaktyka","grubosc":3,"szacowana_ilosc_gwiazd":3,"name":"gal3"}
+{"identity":"Galaktyka","grubosc":3,"szacowana_ilosc_gwiazd":3,"name":"gal3"}
+{"identity":"Galaktyka","grubosc":3,"szacowana_ilosc_gwiazd":3,"name":"gal3"}
+{"galaktyki":"r","identity":"Grupa","name":"gal3"}
+{"galaktyki":"r","identity":"Grupa","name":"gal3"}
+{"galaktyki":"r","identity":"Grupa","name":"gal3"}
+{"galaktyki":"1","identity":"Grupa","name":"grup1"}
+{"galaktyki":"2","identity":"Grupa","name":"grup2"}
+{"galaktyki":"2","identity":"Grupa","name":"grup2"}
+{"galaktyki":"3","identity":"Grupa","name":"grup3"}
+{"galaktyki":"3","identity":"Grupa","name":"grup3"}
+{"galaktyki":"3","identity":"Grupa","name":"grup3"}
+{"galaktyki":"1","identity":"Grupa","name":"grupa1"}
+{"galaktyki":"2","identity":"Grupa","name":"grupa2"}
+{"galaktyki":"2","identity":"Grupa","name":"grupa2"}
+{"galaktyki":"3","identity":"Grupa","name":"grupa3"}
+{"galaktyki":"3","identity":"Grupa","name":"grupa3"}
+{"galaktyki":"3","identity":"Grupa","name":"grupa3"}
+{"galaktyki":"4","identity":"Grupa","name":"grupa4"}
+{"galaktyki":"4","identity":"Grupa","name":"grupa4"}
+{"galaktyki":"4","identity":"Grupa","name":"grupa4"}
+{"galaktyki":"4","identity":"Grupa","name":"grupa4"}

@@ -1,72 +1,46 @@
 package gui;
 
 import core.*;
+import gui.listeners.ButtonBackActionListener;
+import gui.listeners.ButtonExitActionListener;
+import gui.listeners.SaveActionListener;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class PanelObiekty extends JPanel {
 	
-    private JLabel helloLabel = new JLabel("WPROWADZ DANE");
-    private JLabel nazwa = new JLabel("Nazwa");
-    private JLabel masa = new JLabel("Masa");
-    private JLabel srednica = new JLabel("Srednica");
-    private JLabel wiek = new JLabel("Wiek");
-    private JLabel o_glowny = new JLabel("Obiekt glowny");
-    private JLabel o_obiegu = new JLabel("Okres biegu");
+	public static JLabel helloLabel = new JLabel("WPROWADZ DANE");
+    protected JLabel nazwa = new JLabel("Nazwa");
+    protected JLabel masa = new JLabel("Masa");
+    protected JLabel srednica = new JLabel("Srednica");
+    protected JLabel wiek = new JLabel("Wiek");
+    protected JLabel o_glowny = new JLabel("Obiekt glowny");
+    protected JLabel o_obiegu = new JLabel("Okres biegu");
     public static JTextField tnazwa = new JTextField("");
     public static JTextField tmasa = new JTextField("");
     public static JTextField tsrednica = new JTextField("");
     public static JTextField twiek = new JTextField("");
     public static JTextField tglowny = new JTextField("");
     public static JTextField tobiegu = new JTextField("");
-       
-    public static JButton back = new JButton("<| BACK");
-    static JButton zapisz = new JButton("ZAPISZ");
-    private JTextArea textArea;
-    private JScrollPane scrollPane;
-    static Font f = new Font("SansSerif", Font.BOLD, 20);
-    static Font i = new Font("Impact", Font.BOLD, 20);
-    static Font g = new Font("Gabriola", Font.BOLD, 20);
-    static int x = Utilities.centre()/4;
-    static String tytul = new String("");
-    static String s = new String("");
-    
-    private JButton joke = new JButton("Tutaj lepiej nie wchodz");
-    
-  
+    public static int x = Utilities.centre()/4;
     
     public PanelObiekty() {
         setLayout(null);
-        setBackground(Color.white);
         
-        //if(HelloPanel.wybor.equals("kometa")){
-        //	HelloPanel.setBackgroud("images/kometa.jpg");
-        //}
-        
-        //textArea = new JTextArea("5, 20");
-        //scrollPane = new JScrollPane(textArea); 
-        //textArea.setEditable(true);
-        
-        this.back.setFont(f);
-        this.helloLabel.setFont(g);
-        this.nazwa.setFont(g);
-        this.masa.setFont(g);
-        this.srednica.setFont(g);
-        this.wiek.setFont(g);
-        this.o_glowny.setFont(g);
-        this.o_obiegu.setFont(g);
-        zapisz.setFont(f);
-        
-        
-        //sssssssssssss
-        //this.scrollPane.setBounds(x+100, 20, 150, 150);
-        
-        this.helloLabel.setBounds(x-50, 20, 150, 30);
-        zapisz.setBounds(x/2 + 350, 400, 150, 30);
-        back.setBounds(x/4 -50, 20, 115, 30);
-                
+        PanelObiekty.tnazwa.setText("");
+		PanelObiekty.tmasa.setText("");
+		PanelObiekty.tsrednica.setText("");
+		PanelObiekty.twiek.setText("");
+		PanelObiekty.tglowny.setText("");
+		PanelObiekty.tobiegu.setText("");
+		
+        this.nazwa.setFont(Utilities.g);
+        this.masa.setFont(Utilities.g);
+        this.srednica.setFont(Utilities.g);
+        this.wiek.setFont(Utilities.g);
+        this.o_glowny.setFont(Utilities.g);
+        this.o_obiegu.setFont(Utilities.g);
+       	PanelObiekty.helloLabel.setFont(Utilities.g);
+	        
         this.nazwa.setBounds(x/2 -130, 100, 150, 30);
         this.masa.setBounds(x/2 -130, 140, 150, 30);
         this.srednica.setBounds(x/2 -130, 180, 150, 30);
@@ -79,37 +53,19 @@ public class PanelObiekty extends JPanel {
         twiek.setBounds(x/2 -10, 220, 200, 30);
         tglowny.setBounds(x/2 -10, 260, 200, 30);
         tobiegu.setBounds(x/2 -10, 300, 200, 30);
+        Utilities.exit.setBounds(x/2 + 350, 20, 150, 30);  
+        helloLabel.setBounds(x-50, 20, 150, 30);
+        Utilities.zapisz.setBounds(x/2 + 350, 400, 150, 30);
+        Utilities.back.setBounds(x/4 -50, 20, 115, 30);
         
-        HelloPanel.exit.setBounds(x/2 + 350, 20, 150, 30);        
-        add(HelloPanel.exit);
-        joke.setBounds(x/4 -50, 400, 170, 30);
-
-        back.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Main.w.changePanel(new HelloPanel());
-            }
-        });
-        
-        
-        zapisz.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            	
-            	posprzataj();
-            }
-        });
-        
-        
-        joke.addActionListener(new ActionListener(){
-        	public void actionPerformed(ActionEvent e){
-        		Main.w.changePanel(new JustPanel());
-        	}        	
-        });
-        
-        add(this.helloLabel);
-        add(this.back);
-        add(zapisz);
+        Utilities.exit.addActionListener(new ButtonExitActionListener());
+        Utilities.back.addActionListener(new ButtonBackActionListener());
+        Utilities.zapisz.addActionListener(new SaveActionListener());
+       
+        add(PanelObiekty.helloLabel);
+        add(Utilities.exit);
+        add(Utilities.back);
+        add(Utilities.zapisz);
         add(this.nazwa);
         add(this.masa);
         add(this.srednica);
@@ -122,32 +78,7 @@ public class PanelObiekty extends JPanel {
         add(twiek);
         add(tglowny);
         add(tobiegu);
-        add(joke);
-        
         add(Utilities.panelImgLab);
-        //add(this.textArea);
-        //add(this.scrollPane);
-        
-        
-    }
-   
-    public static void posprzataj(){
-    	tnazwa.setText("");
-        tmasa.setText("");
-        tsrednica.setText("");
-        twiek.setText("");
-        tglowny.setText("");
-        tobiegu.setText("");
-        
-        Main.w.changePanel(new HelloPanel());
-    }
-    
-     
-    public static void s_dane(){
-    	s = new String(tnazwa.getText() + " ::MASA: " + tmasa.getText()
-		+" ::SREDNICA: "+ tsrednica.getText()+ " ::WIEK: "+ twiek.getText()
-		+" ::OBIEKT GLOWNY:"+ tglowny.getText()+" ::OKRES OBIEGU: "+ tobiegu.getText());
-
-    }
-    
+     }
+       
 }

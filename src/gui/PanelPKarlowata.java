@@ -1,15 +1,24 @@
 package gui;
 
-import gui.listeners.SaveActionListener;
+import java.awt.Color;
 
-public class PanelPKarlowata extends PanelObiekty {
+import core.Utilities;
+import gui.listeners.SavePKarlowataActionListener;
+
+public class PanelPKarlowata extends PanelObiekty{
 	
 	public PanelPKarlowata(){
+		
 		super();
-		 PanelObiekty.zapisz.addActionListener(new SaveActionListener());
+		nazwa.setForeground(Color.WHITE);
+        masa.setForeground(Color.WHITE);
+        srednica.setForeground(Color.WHITE);
+        wiek.setForeground(Color.WHITE);
+        o_glowny.setForeground(Color.WHITE);
+        o_obiegu.setForeground(Color.WHITE);
+        helloLabel.setForeground(Color.white);
+		Utilities.zapisz.addActionListener(new SavePKarlowataActionListener());
 		 
-		
-		
 	}
 
 }

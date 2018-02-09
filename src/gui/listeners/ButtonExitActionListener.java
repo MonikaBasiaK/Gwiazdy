@@ -1,0 +1,17 @@
+package gui.listeners;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import core.Utilities;
+
+public class ButtonExitActionListener implements ActionListener{
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+	
+     	Utilities.zapisDoPlikuJson("gwiazdy.txt");
+     	System.exit(0);	
+	}
+
+}
