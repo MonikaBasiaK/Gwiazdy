@@ -11,7 +11,7 @@ public class HelloPanelPlanetoidaActionListener implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Utilities.setBackgroud("images/planetoida.jpg");
+		Utilities.getInstance().setBackgroud("images/planetoida.jpg");
 		Main.w.changePanel(new PanelPlanetoida());
 		}
 

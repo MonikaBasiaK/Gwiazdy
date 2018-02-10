@@ -17,16 +17,16 @@ public class PanelSatelita extends PanelObiekty{
 		super();
 		
 		ttyp.setSelectedIndex(0);
-		this.typ.setFont(Utilities.g);
+		this.typ.setFont(Utilities.getInstance().g);
 		this.typ.setBounds(x/2 -130, 340, 150, 30);
         ttyp.setBounds(x/2 -10, 340, 200, 30);
         
         ttyp.addActionListener(new TypSatelityActionListener());
-        Utilities.zapisz.addActionListener(new SaveSatelitaActionListener());
+        Utilities.getInstance().zapisz.addActionListener(new SaveSatelitaActionListener());
         
         add(typ);
         add(ttyp);
-        add(Utilities.panelImgLab);
+        add(Utilities.getInstance().panelImgLab);
 	}
 	
 	

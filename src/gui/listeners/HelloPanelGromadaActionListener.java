@@ -12,7 +12,7 @@ public class HelloPanelGromadaActionListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
-		Utilities.setBackgroud("images/gromada.jpg");
+		Utilities.getInstance().setBackgroud("images/gromada.jpg");
 		Main.w.changePanel(new PanelGromada());
 	}
 

@@ -12,9 +12,9 @@ public class SaveSatelitaActionListener implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Listy.obiektyTest.add(new Satelita(PanelObiekty.tnazwa.getText(), Float.parseFloat( PanelObiekty.tmasa.getText()),
+		Listy.obiekty.add(new Satelita(PanelObiekty.tnazwa.getText(), Float.parseFloat( PanelObiekty.tmasa.getText()),
 		        Double.parseDouble(PanelObiekty.tsrednica.getText()), Integer.parseInt(PanelObiekty.twiek.getText()),
 		        PanelObiekty.tglowny.getText(), Float.parseFloat(PanelObiekty.tobiegu.getText()), 
-		        PanelSatelita.ttyp.getToolTipText()));
+		        PanelSatelita.ttyp.getSelectedItem().toString()));
 		}
 }

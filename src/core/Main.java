@@ -10,7 +10,7 @@ public class Main {
 	public static void main(String[] args) throws JSONException, ClassNotFoundException {
 
 		w = new Window();
-		Utilities.odczytZPlikuJson("gwiazdy.txt");
+		Utilities.getInstance().odczytZPlikuJson("gwiazdy.txt");
 	}
 
 }

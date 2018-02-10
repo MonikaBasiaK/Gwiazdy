@@ -22,7 +22,7 @@ public class PanelGwiazdozbior extends PanelStruktury{
 		setLayout(null);
 		
 		PanelGwiazdozbior.displayArea.setText("");
-	    gwiazdy.setFont(Utilities.g);
+	    gwiazdy.setFont(Utilities.getInstance().g);
 		gwiazdy.setForeground(Color.WHITE);
 		helloLabel.setForeground(Color.white);
 		PanelStruktury.nazwa.setForeground(Color.white);
@@ -31,14 +31,14 @@ public class PanelGwiazdozbior extends PanelStruktury{
 		panel = new JScrollPane(displayArea);
         panel.setBounds(x/2 -10, 140, 500, 200);
         displayArea.setEditable(true);
-        displayArea.setFont(Utilities.g);
+        displayArea.setFont(Utilities.getInstance().g);
         
-        Utilities.zapisz.addActionListener(new SaveGwiazdozbiorActionListener());
+        Utilities.getInstance().zapisz.addActionListener(new SaveGwiazdozbiorActionListener());
         
        add(panel);
        add(this.gwiazdy);
-       add(Utilities.back);
-       add(Utilities.panelImgLab);
+       add(Utilities.getInstance().back);
+       add(Utilities.getInstance().panelImgLab);
 	}
 
 }

@@ -19,15 +19,15 @@ public class Katalog extends JPanel {
         setLayout(null);
         
         x = Utilities.centre()/4;
-        this.helloLabel.setFont(Utilities.f);
-        this.ok.setFont(Utilities.f);
+        this.helloLabel.setFont(Utilities.getInstance().f);
+        this.ok.setFont(Utilities.getInstance().f);
         this.helloLabel.setBounds(x-50, 20, 100, 30);
         this.ok.setBounds(x/2 + 310, 20, 180, 30); 
         panel = new JScrollPane(displayArea);
         panel.setBounds(x/2-120, 70, 610, 360);
         displayArea.setEditable(false);
         displayArea.setFont(g);
-        displayArea.setText(Utilities.daneZPliku);
+        displayArea.setText(Utilities.getInstance().daneZPliku);
         
         ok.addActionListener(new ButtonOkActionListener());
 

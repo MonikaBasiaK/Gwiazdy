@@ -33,13 +33,13 @@ public class PanelObiekty extends JPanel {
 		PanelObiekty.tglowny.setText("");
 		PanelObiekty.tobiegu.setText("");
 		
-        this.nazwa.setFont(Utilities.g);
-        this.masa.setFont(Utilities.g);
-        this.srednica.setFont(Utilities.g);
-        this.wiek.setFont(Utilities.g);
-        this.o_glowny.setFont(Utilities.g);
-        this.o_obiegu.setFont(Utilities.g);
-       	PanelObiekty.helloLabel.setFont(Utilities.g);
+        this.nazwa.setFont(Utilities.getInstance().g);
+        this.masa.setFont(Utilities.getInstance().g);
+        this.srednica.setFont(Utilities.getInstance().g);
+        this.wiek.setFont(Utilities.getInstance().g);
+        this.o_glowny.setFont(Utilities.getInstance().g);
+        this.o_obiegu.setFont(Utilities.getInstance().g);
+       	PanelObiekty.helloLabel.setFont(Utilities.getInstance().g);
 	        
         this.nazwa.setBounds(x/2 -130, 100, 150, 30);
         this.masa.setBounds(x/2 -130, 140, 150, 30);
@@ -53,19 +53,17 @@ public class PanelObiekty extends JPanel {
         twiek.setBounds(x/2 -10, 220, 200, 30);
         tglowny.setBounds(x/2 -10, 260, 200, 30);
         tobiegu.setBounds(x/2 -10, 300, 200, 30);
-        Utilities.exit.setBounds(x/2 + 350, 20, 150, 30);  
+        Utilities.getInstance().exit.setBounds(x/2 + 350, 20, 150, 30);
         helloLabel.setBounds(x-50, 20, 150, 30);
-        Utilities.zapisz.setBounds(x/2 + 350, 400, 150, 30);
-        Utilities.back.setBounds(x/4 -50, 20, 115, 30);
-        
-        Utilities.exit.addActionListener(new ButtonExitActionListener());
-        Utilities.back.addActionListener(new ButtonBackActionListener());
-        Utilities.zapisz.addActionListener(new SaveActionListener());
+        Utilities.getInstance().zapisz.setBounds(x/2 + 350, 400, 150, 30);
+        Utilities.getInstance().back.setBounds(x/4 -50, 20, 115, 30);
+
+        Utilities.getInstance().zapisz.addActionListener(new SaveActionListener());
        
         add(PanelObiekty.helloLabel);
-        add(Utilities.exit);
-        add(Utilities.back);
-        add(Utilities.zapisz);
+        add(Utilities.getInstance().exit);
+        add(Utilities.getInstance().back);
+        add(Utilities.getInstance().zapisz);
         add(this.nazwa);
         add(this.masa);
         add(this.srednica);
@@ -78,7 +76,7 @@ public class PanelObiekty extends JPanel {
         add(twiek);
         add(tglowny);
         add(tobiegu);
-        add(Utilities.panelImgLab);
+        add(Utilities.getInstance().panelImgLab);
      }
        
 }

@@ -11,7 +11,7 @@ public class HelloPanelKometaActionListener implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Utilities.setBackgroud("images/kometa.jpg");
+		Utilities.getInstance().setBackgroud("images/kometa.jpg");
     	Main.w.changePanel(new PanelKometa());
 	}
 

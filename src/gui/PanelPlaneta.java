@@ -22,23 +22,23 @@ public class PanelPlaneta extends PanelObiekty{
 		
 		PanelPlaneta.tksiezyce.setText("");
         tkategoria.setSelectedIndex(0);
-		this.ksiezyce.setFont(Utilities.g);
-		this.kategoria.setFont(Utilities.g);
+		this.ksiezyce.setFont(Utilities.getInstance().g);
+		this.kategoria.setFont(Utilities.getInstance().g);
 		
 		this.ksiezyce.setBounds(x/2 -130, 340, 150, 30);
         tksiezyce.setBounds(x/2 -10, 340, 200, 30);
         this.kategoria.setBounds(x/2 + 240, 100, 150, 30);
         tkategoria.setBounds(x/2 + 350, 100, 100, 30);
         
-        Utilities.zapisz.addActionListener(new SavePlanetaActionListener());
+        Utilities.getInstance().zapisz.addActionListener(new SavePlanetaActionListener());
 		tkategoria.addActionListener( new KategoriaPlanetyActionListener());
 	
         add(this.kategoria);
 		add(tkategoria);
 		add(this.ksiezyce);
 		add(tksiezyce);
-		add(Utilities.zapisz);
+		add(Utilities.getInstance().zapisz);
 		add(tkategoria);
-		add(Utilities.panelImgLab);}
+		add(Utilities.getInstance().panelImgLab);}
 	
 }

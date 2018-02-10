@@ -23,22 +23,22 @@ public class PanelSupergromada extends PanelStruktury{
 		PanelSupergromada.topis.setText("");
 		PanelStruktury.helloLabel.setForeground(Color.white);
 		PanelStruktury.nazwa.setForeground(Color.white);
-		opis.setFont(Utilities.g);
+		opis.setFont(Utilities.getInstance().g);
 		opis.setBounds(x/2 -130, 140, 150, 30);
 		opis.setForeground(Color.WHITE);
 		
 		panel = new JScrollPane(topis);
 		panel.setBounds(x/2 -10, 140, 200, 200);
         topis.setEditable(true);
-        topis.setFont(Utilities.g);
+        topis.setFont(Utilities.getInstance().g);
         
         
-        Utilities.zapisz.addActionListener(new SaveSuperGromadaActionListener());
+        Utilities.getInstance().zapisz.addActionListener(new SaveSuperGromadaActionListener());
         
-        add(Utilities.zapisz);
+        add(Utilities.getInstance().zapisz);
         add(panel);
         add(opis);
-        add(Utilities.panelImgLab);
+        add(Utilities.getInstance().panelImgLab);
         
 	}
 	

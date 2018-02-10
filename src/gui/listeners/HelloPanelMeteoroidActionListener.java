@@ -12,7 +12,7 @@ public class HelloPanelMeteoroidActionListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		Utilities.setBackgroud("images/meteoroid.jpg");
+		Utilities.getInstance().setBackgroud("images/meteoroid.jpg");
 		Main.w.changePanel(new PanelMeteoroid());
 	}
 

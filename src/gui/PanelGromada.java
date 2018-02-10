@@ -18,18 +18,18 @@ public class PanelGromada extends PanelStruktury{
 		PanelStruktury.helloLabel.setForeground(Color.white);
 		PanelStruktury.nazwa.setForeground(Color.white);
 		this.rozmiar.setForeground(Color.white);
-		this.rozmiar.setFont(Utilities.g);
-		trozmiar.setFont(Utilities.g);
+		this.rozmiar.setFont(Utilities.getInstance().g);
+		trozmiar.setFont(Utilities.getInstance().g);
 		
 		this.rozmiar.setBounds(x/2 -130, 140, 150, 30);
         trozmiar.setBounds(x/2 -10, 140, 200, 30);
         
-        Utilities.zapisz.addActionListener(new SaveGromadaActionListener());
+        Utilities.getInstance().zapisz.addActionListener(new SaveGromadaActionListener());
 		
 		add(this.rozmiar);
 		add(trozmiar);
-		add(Utilities.zapisz);
-		add(Utilities.panelImgLab);
+		add(Utilities.getInstance().zapisz);
+		add(Utilities.getInstance().panelImgLab);
 		
 		
 	}

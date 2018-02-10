@@ -14,16 +14,16 @@ public class PanelGwiazda extends PanelObiekty{
 		super();
 		
 		PanelGwiazda.tgwiazdozbior.setText("");
-		this.gwiazdozbior.setFont(Utilities.g);
+		this.gwiazdozbior.setFont(Utilities.getInstance().g);
 		this.gwiazdozbior.setBounds(x/2 -130, 340, 150, 30);
         tgwiazdozbior.setBounds(x/2 -10, 340, 200, 30);
        
-        Utilities.zapisz.addActionListener(new SaveGwiazdaActionListener());
+        Utilities.getInstance().zapisz.addActionListener(new SaveGwiazdaActionListener());
         
         add(gwiazdozbior);
         add(tgwiazdozbior);
-        add(Utilities.zapisz);
-        add(Utilities.panelImgLab);
+        add(Utilities.getInstance().zapisz);
+        add(Utilities.getInstance().panelImgLab);
         
 	}
 

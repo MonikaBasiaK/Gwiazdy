@@ -6,6 +6,6 @@ import gui.listeners.SavePlanetoidaActionListener;
 public class PanelPlanetoida extends PanelObiekty{
 	public PanelPlanetoida(){
 		super();
-		Utilities.zapisz.addActionListener(new SavePlanetoidaActionListener());
+		Utilities.getInstance().zapisz.addActionListener(new SavePlanetoidaActionListener());
 	}
 }

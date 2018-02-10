@@ -12,7 +12,7 @@ public class HelloPanelGalaktykaActionListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		Utilities.setBackgroud("images/galaktyka.jpg");
+		Utilities.getInstance().setBackgroud("images/galaktyka.jpg");
 		Main.w.changePanel(new PanelGalaktyka());
 	}
 

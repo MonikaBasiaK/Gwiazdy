@@ -15,6 +15,8 @@ import javax.swing.JLabel;
 
 import com.google.gson.Gson;
 
+import gui.listeners.ButtonBackActionListener;
+import gui.listeners.ButtonExitActionListener;
 import zwyklamateria.obiekty.Gwiazda;
 import zwyklamateria.obiekty.Kometa;
 import zwyklamateria.obiekty.Meteoroid;
@@ -33,24 +35,34 @@ import zwyklamateria.struktury.SuperGromada;
 
 public class Utilities {
 	
-	public static Gson gson = new Gson();
-    public static JButton exit = new JButton("EXIT");
-	public static JButton back = new JButton("<| BACK");
-    public static JButton zapisz = new JButton("ZAPISZ");
-	public static Font f = new Font("SansSerif", Font.BOLD, 20);
-    public static Font i = new Font("Impact", Font.BOLD, 20);
-    public static Font g = new Font("Gabriola", Font.BOLD, 20);
-    public static String daneZPliku = new String("");
-    public static int x;
-	
+	public Gson gson = new Gson();
+    public JButton exit = new JButton("EXIT");
+	public JButton back = new JButton("<| BACK");
+    public JButton zapisz = new JButton("ZAPISZ");
+	public Font f = new Font("SansSerif", Font.BOLD, 20);
+    public Font i = new Font("Impact", Font.BOLD, 20);
+    public Font g = new Font("Gabriola", Font.BOLD, 20);
+    public String daneZPliku = new String("");
+    public int x;
         
-	public Utilities()
+	private Utilities()
 	{
-		x = centre()/4;;
+		x = centre()/4;
+		exit.addActionListener(new ButtonExitActionListener());
+		back.addActionListener(new ButtonBackActionListener());
+	}
+
+	private static class UtilitiesHandler
+	{
+		private final static Utilities instance = new Utilities();
+	}
+
+	public static Utilities getInstance()
+	{
+		return UtilitiesHandler.instance;
 	}
 	
-	
-public static void odczytZPlikuJson(String file) throws ClassNotFoundException{
+	public void odczytZPlikuJson(String file) throws ClassNotFoundException{
 		
 		int gdzieStart, gdzieEnd; 
 		String typ;
@@ -61,7 +73,7 @@ public static void odczytZPlikuJson(String file) throws ClassNotFoundException{
 		   try {
 		     fr = new FileReader(file);
 		   } catch (FileNotFoundException e) {
-		       System.out.println("B£¥D PRZY OTWIERANIU PLIKU!");
+		       System.out.println("Bï¿½ï¿½D PRZY OTWIERANIU PLIKU!");
 		       System.exit(1);
 		   }
 
@@ -130,7 +142,7 @@ public static void odczytZPlikuJson(String file) throws ClassNotFoundException{
 		    	 }
 		     }
 		    } catch (IOException e) {
-		        System.out.println("B£¥D ODCZYTU Z PLIKU!");
+		        System.out.println("Bï¿½ï¿½D ODCZYTU Z PLIKU!");
 		        System.exit(2);
 		   }
 
@@ -138,12 +150,12 @@ public static void odczytZPlikuJson(String file) throws ClassNotFoundException{
 		   try {
 		     fr.close();
 		    } catch (IOException e) {
-		         System.out.println("B£¥D PRZY ZAMYKANIU PLIKU!");
+		         System.out.println("Bï¿½ï¿½D PRZY ZAMYKANIU PLIKU!");
 		         System.exit(3);
 		        }
 }
 
-public static void zapisDoPlikuJson(String gdzieZapisac){
+public void zapisDoPlikuJson(String gdzieZapisac){
 	FileWriter fw = null;
     try {
        fw = new FileWriter(gdzieZapisac);
@@ -179,10 +191,10 @@ public static void zapisDoPlikuJson(String gdzieZapisac){
 	
 	//---------------------------------------------------
 	//Background
-    public static JLabel panelImgLab;
-    public static ImageIcon panelImage;
+    public JLabel panelImgLab;
+    public ImageIcon panelImage;
     
-    public static void setBackgroud(String s)
+    public void setBackgroud(String s)
     {
 	    	panelImage= new ImageIcon(s);
 	        panelImgLab= new JLabel();

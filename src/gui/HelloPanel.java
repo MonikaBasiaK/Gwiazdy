@@ -40,28 +40,28 @@ public class HelloPanel extends JPanel{
     public HelloPanel() {
     	
         setLayout(null);
-    	Utilities.setBackgroud("images/tenor.gif");
+    	Utilities.getInstance().setBackgroud("images/tenor.gif");
     	x = Utilities.centre()/4;
     	
-    	this.helloLabel.setFont(Utilities.g);
-        this.obiekt.setFont(Utilities.i);
-        this.struktura.setFont(Utilities.i);
-        this.gwiazda.setFont(Utilities.g);
-        this.kometa.setFont(Utilities.g);
-        this.meteoroid.setFont(Utilities.g);
-        this.planeta.setFont(Utilities.g);
-        this.planeta_karlowata.setFont(Utilities.g);
-        this.planetoida.setFont(Utilities.g);
-        this.satelita.setFont(Utilities.g);
-        this.gwiazdozbior.setFont(Utilities.g);
-        this.galaktyka.setFont(Utilities.g);
-        this.grupa.setFont(Utilities.g);
-        this.gromada.setFont(Utilities.g);
-        this.supergromada.setFont(Utilities.g);
-        this.przejrzyj.setFont(Utilities.g);
+    	this.helloLabel.setFont(Utilities.getInstance().g);
+        this.obiekt.setFont(Utilities.getInstance().i);
+        this.struktura.setFont(Utilities.getInstance().i);
+        this.gwiazda.setFont(Utilities.getInstance().g);
+        this.kometa.setFont(Utilities.getInstance().g);
+        this.meteoroid.setFont(Utilities.getInstance().g);
+        this.planeta.setFont(Utilities.getInstance().g);
+        this.planeta_karlowata.setFont(Utilities.getInstance().g);
+        this.planetoida.setFont(Utilities.getInstance().g);
+        this.satelita.setFont(Utilities.getInstance().g);
+        this.gwiazdozbior.setFont(Utilities.getInstance().g);
+        this.galaktyka.setFont(Utilities.getInstance().g);
+        this.grupa.setFont(Utilities.getInstance().g);
+        this.gromada.setFont(Utilities.getInstance().g);
+        this.supergromada.setFont(Utilities.getInstance().g);
+        this.przejrzyj.setFont(Utilities.getInstance().g);
         this.helloLabel.setBounds(x-50, 20, 100, 30);
         this.przejrzyj.setBounds(x/2 + 310, 20, 180, 30);
-        Utilities.exit.setBounds(x/2 + 350, 100, 100, 30);
+        Utilities.getInstance().exit.setBounds(x/2 + 350, 100, 100, 30);
         this.obiekt.setBounds(x/2 -100, 100, 150, 30);
         this.struktura.setBounds(x/2 + 100, 100, 200, 30);
         this.gwiazda.setBounds(x/2 -100, 140, 150, 30);
@@ -76,8 +76,7 @@ public class HelloPanel extends JPanel{
         this.grupa.setBounds(x/2 + 100, 220, 200, 30);
         this.gromada.setBounds(x/2 + 100, 260, 200, 30);
         this.supergromada.setBounds(x/2 + 100, 300, 200, 30);
-                
-        Utilities.exit.addActionListener(new ButtonExitActionListener());
+
         przejrzyj.addActionListener(new ButtonPrzejrzyjDaneActionListener());
         gwiazda.addActionListener(new HelloPanelGwiazdaActionListener());
         kometa.addActionListener(new HelloPanelKometaActionListener());
@@ -93,7 +92,7 @@ public class HelloPanel extends JPanel{
         supergromada.addActionListener(new HelloPanelSupergromadaActionListener());
         
         add(this.helloLabel);
-        add(Utilities.exit);
+        add(Utilities.getInstance().exit);
         add(this.obiekt);
         add(this.struktura);
         add(this.gwiazda);
@@ -109,6 +108,6 @@ public class HelloPanel extends JPanel{
         add(this.gromada);
         add(this.supergromada);
         add(this.przejrzyj);
-        add(Utilities.panelImgLab);
+        add(Utilities.getInstance().panelImgLab);
     }
 }

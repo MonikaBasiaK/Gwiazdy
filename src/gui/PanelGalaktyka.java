@@ -26,9 +26,9 @@ public class PanelGalaktyka extends PanelStruktury{
 		PanelGalaktyka.tgrubosc.setText("");
         PanelGalaktyka.tszacowana_ilosc_gwiazd.setText("");
         comboTyp.setSelectedIndex(0);			
-		this.grubosc.setFont(Utilities.g);
-		this.szacowana_ilosc_gwiazd.setFont(Utilities.g);
-		this.typ.setFont(Utilities.g);
+		this.grubosc.setFont(Utilities.getInstance().g);
+		this.szacowana_ilosc_gwiazd.setFont(Utilities.getInstance().g);
+		this.typ.setFont(Utilities.getInstance().g);
 		nazwa.setForeground(Color.white);
 		helloLabel.setForeground(Color.white);
 		this.grubosc.setForeground(Color.white);
@@ -44,7 +44,7 @@ public class PanelGalaktyka extends PanelStruktury{
         
             
         comboTyp.addActionListener(new TypGalaktykiActionListener());
-        Utilities.zapisz.addActionListener(new SaveGalaktykaActionLIstener());
+        Utilities.getInstance().zapisz.addActionListener(new SaveGalaktykaActionLIstener());
         
         add(this.grubosc);
         add(tgrubosc);
@@ -52,8 +52,8 @@ public class PanelGalaktyka extends PanelStruktury{
         add(tszacowana_ilosc_gwiazd);
         add(this.typ);
         add(PanelGalaktyka.comboTyp);
-        add(Utilities.zapisz);
-        add(Utilities.panelImgLab);
+        add(Utilities.getInstance().zapisz);
+        add(Utilities.getInstance().panelImgLab);
 		
 	}
 

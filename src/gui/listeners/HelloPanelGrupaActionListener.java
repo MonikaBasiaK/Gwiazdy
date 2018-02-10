@@ -12,7 +12,7 @@ public class HelloPanelGrupaActionListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
-		Utilities.setBackgroud("images/grupa.jpg");
+		Utilities.getInstance().setBackgroud("images/grupa.jpg");
 		Main.w.changePanel(new PanelGrupa());
 	}
 

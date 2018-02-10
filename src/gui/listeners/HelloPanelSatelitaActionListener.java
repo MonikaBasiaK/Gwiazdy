@@ -11,7 +11,7 @@ public class HelloPanelSatelitaActionListener implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Utilities.setBackgroud("images/satelita.jpg");
+		Utilities.getInstance().setBackgroud("images/satelita.jpg");
 		Main.w.changePanel(new PanelSatelita());
 	}
 

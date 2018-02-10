@@ -11,7 +11,7 @@ public class HelloPanelSupergromadaActionListener implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		Utilities.setBackgroud("images/supergromada.jpg");
+		Utilities.getInstance().setBackgroud("images/supergromada.jpg");
 		Main.w.changePanel(new PanelSupergromada());
 	}
 	

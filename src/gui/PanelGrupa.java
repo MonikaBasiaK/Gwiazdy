@@ -15,7 +15,7 @@ public class PanelGrupa extends PanelStruktury{
 		super();
 		
 		tgalaktyki.setText("");
-		this.galaktyki.setFont(Utilities.g);
+		this.galaktyki.setFont(Utilities.getInstance().g);
 		this.galaktyki.setForeground(Color.white);
 		PanelStruktury.helloLabel.setForeground(Color.white);
 		PanelStruktury.nazwa.setForeground(Color.white);
@@ -23,12 +23,12 @@ public class PanelGrupa extends PanelStruktury{
 		this.galaktyki.setBounds(x/2 -130, 140, 150, 30);
         tgalaktyki.setBounds(x/2 -10, 140, 200, 30);
         
-        Utilities.zapisz.addActionListener(new SaveGrupaActionListener());
+        Utilities.getInstance().zapisz.addActionListener(new SaveGrupaActionListener());
         
         add(this.galaktyki);
         add(tgalaktyki);
-        add(Utilities.zapisz);
-        add(Utilities.panelImgLab);
+        add(Utilities.getInstance().zapisz);
+        add(Utilities.getInstance().panelImgLab);
       }
 
 }

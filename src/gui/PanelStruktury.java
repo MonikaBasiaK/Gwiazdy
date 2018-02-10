@@ -21,29 +21,27 @@ public class PanelStruktury extends JPanel {
 		 setLayout(null);
 		 
 		 PanelStruktury.tnazwa.setText("");			
-		 nazwa.setFont(Utilities.g);
-		 helloLabel.setFont(Utilities.g);
+		 nazwa.setFont(Utilities.getInstance().g);
+		 helloLabel.setFont(Utilities.getInstance().g);
 		
 		 nazwa.setBounds(x/2 -130, 100, 150, 30);
 	     tnazwa.setBounds(x/2 -10, 100, 200, 30);
 	     
-	     Utilities.exit.setBounds(x/2 + 350, 20, 150, 30);  
+	     Utilities.getInstance().exit.setBounds(x/2 + 350, 20, 150, 30);
 	     helloLabel.setBounds(x-50, 20, 150, 30);
-	     Utilities.zapisz.setBounds(x/2 + 350, 400, 150, 30);
-	     Utilities.back.setBounds(x/4 -50, 20, 115, 30);
+	     Utilities.getInstance().zapisz.setBounds(x/2 + 350, 400, 150, 30);
+	     Utilities.getInstance().back.setBounds(x/4 -50, 20, 115, 30);
 	        
 	        
-	     Utilities.zapisz.addActionListener(new SaveActionListener());
-	     Utilities.exit.addActionListener(new ButtonExitActionListener());
-	     Utilities.back.addActionListener(new ButtonBackActionListener());
+	     Utilities.getInstance().zapisz.addActionListener(new SaveActionListener());
 	       
 		add(helloLabel);
-        add(Utilities.exit);
-        add(Utilities.back);
-        add(Utilities.zapisz);
+        add(Utilities.getInstance().exit);
+        add(Utilities.getInstance().back);
+        add(Utilities.getInstance().zapisz);
         add(nazwa);
 		add(tnazwa);
-		add(Utilities.panelImgLab);
+		add(Utilities.getInstance().panelImgLab);
 	}
 
 }

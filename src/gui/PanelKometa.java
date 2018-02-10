@@ -9,7 +9,7 @@ public class PanelKometa extends PanelObiekty{
 	public PanelKometa(){
 		
 		super();
-		Utilities.zapisz.addActionListener(new SaveKometaActionListener());
+		Utilities.getInstance().zapisz.addActionListener(new SaveKometaActionListener());
 		
 	}
 

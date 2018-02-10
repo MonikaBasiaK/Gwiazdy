@@ -8,7 +8,7 @@ public class PanelMeteoroid extends PanelObiekty{
 	public PanelMeteoroid(){
 		super();
 		
-		Utilities.zapisz.addActionListener(new SaveMeteoroidActionListener());
+		Utilities.getInstance().zapisz.addActionListener(new SaveMeteoroidActionListener());
 	}
 
 }

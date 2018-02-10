@@ -17,7 +17,7 @@ public class PanelPKarlowata extends PanelObiekty{
         o_glowny.setForeground(Color.WHITE);
         o_obiegu.setForeground(Color.WHITE);
         helloLabel.setForeground(Color.white);
-		Utilities.zapisz.addActionListener(new SavePKarlowataActionListener());
+		Utilities.getInstance().zapisz.addActionListener(new SavePKarlowataActionListener());
 		 
 	}
 

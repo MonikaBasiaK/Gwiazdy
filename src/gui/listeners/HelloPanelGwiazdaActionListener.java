@@ -11,7 +11,7 @@ public class HelloPanelGwiazdaActionListener implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Utilities.setBackgroud("images/gwiazda.jpg");
+		Utilities.getInstance().setBackgroud("images/gwiazda.jpg");
     	Main.w.changePanel(new PanelGwiazda());
   	}
 
