@@ -1,7 +1,7 @@
 package gui;
 
 import core.Utilities;
-import gui.listeners.ButtonOkActionListener;
+import gui.listeners.ButtonGoToHelloPanelActionListener;
 import javax.swing.*;
 import java.awt.*;
 
@@ -29,7 +29,7 @@ public class Katalog extends JPanel {
         displayArea.setFont(g);
         displayArea.setText(Utilities.getInstance().daneZPliku);
         
-        ok.addActionListener(new ButtonOkActionListener());
+        ok.addActionListener(new ButtonGoToHelloPanelActionListener());
 
         add(this.helloLabel);
         add(this.ok);

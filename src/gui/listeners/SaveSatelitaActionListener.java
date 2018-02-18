@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import core.Listy;
+import core.Main;
+import gui.HelloPanel;
 import gui.PanelObiekty;
 import gui.PanelSatelita;
 import zwyklamateria.obiekty.Satelita;
@@ -16,5 +18,7 @@ public class SaveSatelitaActionListener implements ActionListener{
 		        Double.parseDouble(PanelObiekty.tsrednica.getText()), Integer.parseInt(PanelObiekty.twiek.getText()),
 		        PanelObiekty.tglowny.getText(), Float.parseFloat(PanelObiekty.tobiegu.getText()), 
 		        PanelSatelita.ttyp.getSelectedItem().toString()));
+		
+		Main.w.changePanel(new HelloPanel());
 		}
 }

@@ -1,17 +1,17 @@
 package gui;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import core.Utilities;
-import gui.listeners.ButtonBackActionListener;
-import gui.listeners.ButtonExitActionListener;
-import gui.listeners.SaveActionListener;
+import gui.listeners.ButtonGoToHelloPanelActionListener;
 
 public class PanelStruktury extends JPanel {
 	
 	public static JLabel helloLabel = new JLabel("WPROWADZ DANE");
+	public JButton zapisz = new JButton("ZAPISZ");
 	public static JLabel nazwa = new JLabel("Nazwa");
 	public static JTextField tnazwa = new JTextField("");
 	static int x = Utilities.centre()/4;
@@ -29,16 +29,16 @@ public class PanelStruktury extends JPanel {
 	     
 	     Utilities.getInstance().exit.setBounds(x/2 + 350, 20, 150, 30);
 	     helloLabel.setBounds(x-50, 20, 150, 30);
-	     Utilities.getInstance().zapisz.setBounds(x/2 + 350, 400, 150, 30);
+	     zapisz.setBounds(x/2 + 350, 400, 150, 30);
 	     Utilities.getInstance().back.setBounds(x/4 -50, 20, 115, 30);
+	     this.zapisz.setBounds(x/2 + 350, 400, 150, 30);
 	        
-	        
-	     Utilities.getInstance().zapisz.addActionListener(new SaveActionListener());
+	     //zapisz.addActionListener(new ButtonGoToHelloPanelActionListener());
 	       
 		add(helloLabel);
         add(Utilities.getInstance().exit);
         add(Utilities.getInstance().back);
-        add(Utilities.getInstance().zapisz);
+        //add(this.zapisz);
         add(nazwa);
 		add(tnazwa);
 		add(Utilities.getInstance().panelImgLab);

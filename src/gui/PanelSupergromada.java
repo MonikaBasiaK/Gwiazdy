@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.Color;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -14,8 +15,10 @@ public class PanelSupergromada extends PanelStruktury{
 	private JLabel opis = new JLabel("Opis");
 	public static JTextArea topis = new JTextArea("");
 	public static JScrollPane panel;
+	 public JButton zapisz = new JButton("ZAPISZ");
 	
 	public PanelSupergromada(){
+		
 		super();
 		
 		setLayout(null);
@@ -31,11 +34,11 @@ public class PanelSupergromada extends PanelStruktury{
 		panel.setBounds(x/2 -10, 140, 200, 200);
         topis.setEditable(true);
         topis.setFont(Utilities.getInstance().g);
+        this.zapisz.setBounds(x/2 + 350, 400, 150, 30);        
         
+        this.zapisz.addActionListener(new SaveSuperGromadaActionListener());
         
-        Utilities.getInstance().zapisz.addActionListener(new SaveSuperGromadaActionListener());
-        
-        add(Utilities.getInstance().zapisz);
+        add(this.zapisz);
         add(panel);
         add(opis);
         add(Utilities.getInstance().panelImgLab);

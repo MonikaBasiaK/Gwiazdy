@@ -1,14 +1,13 @@
 package gui;
 
 import core.*;
-import gui.listeners.ButtonBackActionListener;
-import gui.listeners.ButtonExitActionListener;
-import gui.listeners.SaveActionListener;
+import gui.listeners.ButtonGoToHelloPanelActionListener;
 import javax.swing.*;
 
 public class PanelObiekty extends JPanel {
 	
 	public static JLabel helloLabel = new JLabel("WPROWADZ DANE");
+	public JButton zapisz = new JButton("ZAPISZ");
     protected JLabel nazwa = new JLabel("Nazwa");
     protected JLabel masa = new JLabel("Masa");
     protected JLabel srednica = new JLabel("Srednica");
@@ -55,15 +54,15 @@ public class PanelObiekty extends JPanel {
         tobiegu.setBounds(x/2 -10, 300, 200, 30);
         Utilities.getInstance().exit.setBounds(x/2 + 350, 20, 150, 30);
         helloLabel.setBounds(x-50, 20, 150, 30);
-        Utilities.getInstance().zapisz.setBounds(x/2 + 350, 400, 150, 30);
+        zapisz.setBounds(x/2 + 350, 400, 150, 30);
         Utilities.getInstance().back.setBounds(x/4 -50, 20, 115, 30);
 
-        Utilities.getInstance().zapisz.addActionListener(new SaveActionListener());
+        //zapisz.addActionListener(new ButtonGoToHelloPanelActionListener());
        
         add(PanelObiekty.helloLabel);
         add(Utilities.getInstance().exit);
-        add(Utilities.getInstance().back);
-        add(Utilities.getInstance().zapisz);
+        //add(Utilities.getInstance().back);
+        add(this.zapisz);
         add(this.nazwa);
         add(this.masa);
         add(this.srednica);

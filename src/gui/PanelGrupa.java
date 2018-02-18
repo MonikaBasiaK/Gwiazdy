@@ -1,6 +1,8 @@
 package gui;
 
 import java.awt.Color;
+
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import core.Utilities;
@@ -10,7 +12,8 @@ public class PanelGrupa extends PanelStruktury{
 	
 	private JLabel galaktyki = new JLabel("Galaktyki");
 	public static JTextField tgalaktyki = new JTextField("");
-	
+	public JButton zapisz = new JButton("ZAPISZ");
+	 
 	public PanelGrupa(){
 		super();
 		
@@ -22,12 +25,13 @@ public class PanelGrupa extends PanelStruktury{
 		
 		this.galaktyki.setBounds(x/2 -130, 140, 150, 30);
         tgalaktyki.setBounds(x/2 -10, 140, 200, 30);
+        this.zapisz.setBounds(x/2 + 350, 400, 150, 30);
         
-        Utilities.getInstance().zapisz.addActionListener(new SaveGrupaActionListener());
+        this.zapisz.addActionListener(new SaveGrupaActionListener());
         
         add(this.galaktyki);
         add(tgalaktyki);
-        add(Utilities.getInstance().zapisz);
+        add(this.zapisz);
         add(Utilities.getInstance().panelImgLab);
       }
 

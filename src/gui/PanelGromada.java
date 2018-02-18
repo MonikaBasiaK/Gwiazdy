@@ -1,6 +1,8 @@
 package gui;
 
 import java.awt.Color;
+
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import core.Utilities;
@@ -10,6 +12,7 @@ public class PanelGromada extends PanelStruktury{
 	
 	private JLabel rozmiar = new JLabel("Rozmiar");
 	public static JTextField trozmiar = new JTextField("");
+	 public JButton zapisz = new JButton("ZAPISZ");
 	
 	public PanelGromada(){
 		super();
@@ -23,12 +26,13 @@ public class PanelGromada extends PanelStruktury{
 		
 		this.rozmiar.setBounds(x/2 -130, 140, 150, 30);
         trozmiar.setBounds(x/2 -10, 140, 200, 30);
+        this.zapisz.setBounds(x/2 + 350, 400, 150, 30);
         
-        Utilities.getInstance().zapisz.addActionListener(new SaveGromadaActionListener());
+        this.zapisz.addActionListener(new SaveGromadaActionListener());
 		
 		add(this.rozmiar);
 		add(trozmiar);
-		add(Utilities.getInstance().zapisz);
+		add(this.zapisz);
 		add(Utilities.getInstance().panelImgLab);
 		
 		

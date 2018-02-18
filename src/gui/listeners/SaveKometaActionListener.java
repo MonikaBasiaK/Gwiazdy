@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import core.Listy;
+import core.Main;
+import gui.HelloPanel;
 import gui.PanelObiekty;
 import zwyklamateria.obiekty.Kometa;
 
@@ -15,6 +17,8 @@ public class SaveKometaActionListener implements ActionListener{
 		Listy.obiekty.add(new Kometa(PanelObiekty.tnazwa.getText(), Float.parseFloat( PanelObiekty.tmasa.getText()),
         Double.parseDouble(PanelObiekty.tsrednica.getText()), Integer.parseInt(PanelObiekty.twiek.getText()),
         PanelObiekty.tglowny.getText(), Float.parseFloat(PanelObiekty.tobiegu.getText())));
+		
+		Main.w.changePanel(new HelloPanel());
 		}
 
 }

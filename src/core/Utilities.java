@@ -12,11 +12,9 @@ import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-
 import com.google.gson.Gson;
-
-import gui.listeners.ButtonBackActionListener;
 import gui.listeners.ButtonExitActionListener;
+import gui.listeners.ButtonGoToHelloPanelActionListener;
 import zwyklamateria.obiekty.Gwiazda;
 import zwyklamateria.obiekty.Kometa;
 import zwyklamateria.obiekty.Meteoroid;
@@ -38,8 +36,8 @@ public class Utilities {
 	public Gson gson = new Gson();
     public JButton exit = new JButton("EXIT");
 	public JButton back = new JButton("<| BACK");
-    public JButton zapisz = new JButton("ZAPISZ");
-	public Font f = new Font("SansSerif", Font.BOLD, 20);
+	public JButton zapisz = new JButton("ZAPISZ");
+    public Font f = new Font("SansSerif", Font.BOLD, 20);
     public Font i = new Font("Impact", Font.BOLD, 20);
     public Font g = new Font("Gabriola", Font.BOLD, 20);
     public String daneZPliku = new String("");
@@ -49,7 +47,7 @@ public class Utilities {
 	{
 		x = centre()/4;
 		exit.addActionListener(new ButtonExitActionListener());
-		back.addActionListener(new ButtonBackActionListener());
+		back.addActionListener(new ButtonGoToHelloPanelActionListener());
 	}
 
 	private static class UtilitiesHandler
@@ -154,9 +152,10 @@ public class Utilities {
 		         System.exit(3);
 		        }
 }
-
+//int liczba = 0;
 public void zapisDoPlikuJson(String gdzieZapisac){
 	FileWriter fw = null;
+	
     try {
        fw = new FileWriter(gdzieZapisac);
           } catch (IOException e) { 
@@ -170,12 +169,14 @@ public void zapisDoPlikuJson(String gdzieZapisac){
 		   json = gson.toJson(o); 
 		   bw.write(json);
 		   bw.newLine();
+		  // liczba++;
 	   }
 	   for(Struktura s: Listy.struktury){
 		   json = gson.toJson(s);
 		   bw.write(json);
 	       bw.newLine();
-	   }
+	       //liczba++;
+	   }//System.out.println(liczba);
        
      } catch (IOException e) {
         e.printStackTrace();
@@ -196,8 +197,8 @@ public void zapisDoPlikuJson(String gdzieZapisac){
     
     public void setBackgroud(String s)
     {
-	    	panelImage= new ImageIcon(s);
-	        panelImgLab= new JLabel();
+	    	panelImage = new ImageIcon(s);
+	        panelImgLab = new JLabel();
 	        panelImgLab.setBounds(0, 0,panelImage.getIconWidth(),panelImage.getIconHeight());
 	        panelImgLab.setIcon(panelImage);       
 	}

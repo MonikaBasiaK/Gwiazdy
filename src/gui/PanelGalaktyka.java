@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.Color;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -19,6 +20,7 @@ public class PanelGalaktyka extends PanelStruktury{
 	public static String []t = {"", "spiralna", "soczewkowata", "eiptyczna", "nieregularna"};
 	public static JComboBox<?> comboTyp = new JComboBox<Object>(t);
 	public static String ttyp = new String("");
+	 public JButton zapisz = new JButton("ZAPISZ");
 	
 	public PanelGalaktyka(){
 		super();
@@ -41,10 +43,11 @@ public class PanelGalaktyka extends PanelStruktury{
         tgrubosc.setBounds(x/2 -10, 140, 200, 30);
         comboTyp.setBounds(x/2 -10, 180, 200, 30);
         tszacowana_ilosc_gwiazd.setBounds(x/2 -10, 220, 200, 30);
+        this.zapisz.setBounds(x/2 + 350, 400, 150, 30);
         
             
         comboTyp.addActionListener(new TypGalaktykiActionListener());
-        Utilities.getInstance().zapisz.addActionListener(new SaveGalaktykaActionLIstener());
+        this.zapisz.addActionListener(new SaveGalaktykaActionLIstener());
         
         add(this.grubosc);
         add(tgrubosc);
@@ -52,7 +55,7 @@ public class PanelGalaktyka extends PanelStruktury{
         add(tszacowana_ilosc_gwiazd);
         add(this.typ);
         add(PanelGalaktyka.comboTyp);
-        add(Utilities.getInstance().zapisz);
+        add(this.zapisz);
         add(Utilities.getInstance().panelImgLab);
 		
 	}

@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import core.Listy;
+import core.Main;
+import gui.HelloPanel;
 import gui.PanelObiekty;
 import gui.PanelPlanetoida;
 import zwyklamateria.obiekty.Planetoida;
@@ -16,6 +18,7 @@ public class SavePlanetoidaActionListener implements ActionListener{
 				Double.parseDouble(PanelObiekty.tsrednica.getText()), Integer.parseInt(PanelObiekty.twiek.getText()), 
 				PanelPlanetoida.tglowny.getText(), Float.parseFloat(PanelPlanetoida.tobiegu.getText())));
 		
+		Main.w.changePanel(new HelloPanel());
 		}
 
 }

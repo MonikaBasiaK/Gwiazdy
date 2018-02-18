@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import core.Listy;
+import core.Main;
+import gui.HelloPanel;
 import gui.PanelObiekty;
 import gui.PanelPlaneta;
 import zwyklamateria.obiekty.Planeta;
@@ -16,6 +18,8 @@ public class SavePlanetaActionListener implements ActionListener{
 		        Double.parseDouble(PanelObiekty.tsrednica.getText()), Integer.parseInt(PanelObiekty.twiek.getText()),
 		        PanelObiekty.tglowny.getText(), Float.parseFloat(PanelObiekty.tobiegu.getText()), 
 		        PanelPlaneta.tksiezyce.getText(), PanelPlaneta.tkategoria.getToolTipText()));
+		
+		Main.w.changePanel(new HelloPanel());
 		}
 
 }

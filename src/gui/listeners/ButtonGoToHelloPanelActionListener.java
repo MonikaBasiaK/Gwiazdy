@@ -6,12 +6,13 @@ import java.awt.event.ActionListener;
 import core.Main;
 import gui.HelloPanel;
 
-public class ButtonBackActionListener implements ActionListener{
+public class ButtonGoToHelloPanelActionListener implements ActionListener{
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		
+	public void actionPerformed(ActionEvent arg0) {
+
 		Main.w.changePanel(new HelloPanel());
+	
 	}
 
 }
