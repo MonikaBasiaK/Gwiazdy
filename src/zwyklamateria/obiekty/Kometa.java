@@ -8,5 +8,6 @@ public class Kometa  extends Obiekt{
 	{
 		super(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu);
 		this.identity =	KOMETA;
+		id = KOMETA;
 	}
 }

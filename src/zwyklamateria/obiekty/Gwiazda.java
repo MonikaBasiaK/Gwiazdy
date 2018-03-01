@@ -12,6 +12,17 @@ public class Gwiazda extends Obiekt{
 		super(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu);
 		this.gwiazdozbior = gwiazdozbior;
 		this.identity = GWIAZDA;
+		id = GWIAZDA;
+	}
+	
+	public void setGwiazdozbior(String gwiazdozbior){
+		this.gwiazdozbior = gwiazdozbior;
+	}
+	public String getGwiazdozbior(){
+		return this.gwiazdozbior;
+	}
+	public String getIdentity(){
+		return this.identity;
 	}
 	
 }

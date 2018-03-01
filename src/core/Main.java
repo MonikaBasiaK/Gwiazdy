@@ -1,6 +1,5 @@
 package core;
 
-import database.DatabaseMain;
 import gui.Window;
 
 public class Main {
@@ -9,9 +8,11 @@ public class Main {
 	
 	public static void main(String[] args) throws Exception {
 
-		//w = new Window();
-		//Utilities.getInstance().odczytZPlikuJson("gwiazdy.txt");
-		new DatabaseMain();
+		w = new Window();
+		Utilities.getInstance().odczytZPlikuJson("gwiazdy.txt");
+		//new DatabaseMain();
+		SQLiteJDBC.createTable();
+		SQLiteJDBC.select();
 		}
 
 }

@@ -14,7 +14,7 @@ public class SaveGwiazdaActionListener implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-    		Listy.obiekty.add(new Gwiazda(PanelObiekty.tnazwa.getText(), Float.parseFloat( PanelObiekty.tmasa.getText()),
+    		Listy.obiekty_new.add(new Gwiazda(PanelObiekty.tnazwa.getText(), Float.parseFloat( PanelObiekty.tmasa.getText()),
             Double.parseDouble(PanelObiekty.tsrednica.getText()), Integer.parseInt(PanelObiekty.twiek.getText()),
             PanelObiekty.tglowny.getText(), Float.parseFloat(PanelObiekty.tobiegu.getText()), PanelGwiazda.tgwiazdozbior.getText()));
     		

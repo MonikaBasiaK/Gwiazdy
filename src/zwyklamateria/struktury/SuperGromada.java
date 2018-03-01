@@ -6,6 +6,7 @@ public class SuperGromada extends Struktura{
 	public SuperGromada(String name, String opis){
 		super(name);
 		this.identity = Struktura.SUPERGROMADA;
+		id = Struktura.SUPERGROMADA;
 		this.opis = opis;
 	}
 	

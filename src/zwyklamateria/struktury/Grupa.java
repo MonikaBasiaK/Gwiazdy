@@ -8,6 +8,7 @@ public class Grupa extends Struktura{
 	{
 		super(name);
 		this.identity = Struktura.GRUPA;
+		id = GRUPA;
 		this.galaktyki = galaktyki;
 	}
 }

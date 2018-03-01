@@ -29,9 +29,9 @@ public class PanelStruktury extends JPanel {
 	     
 	     Utilities.getInstance().exit.setBounds(x/2 + 350, 20, 150, 30);
 	     helloLabel.setBounds(x-50, 20, 150, 30);
-	     zapisz.setBounds(x/2 + 350, 400, 150, 30);
+	     //zapisz.setBounds(x/2 + 350, 400, 150, 30);
 	     Utilities.getInstance().back.setBounds(x/4 -50, 20, 115, 30);
-	     this.zapisz.setBounds(x/2 + 350, 400, 150, 30);
+	     //this.zapisz.setBounds(x/2 + 350, 400, 150, 30);
 	        
 	     //zapisz.addActionListener(new ButtonGoToHelloPanelActionListener());
 	       

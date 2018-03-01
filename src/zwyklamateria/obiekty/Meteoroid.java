@@ -8,5 +8,6 @@ public class Meteoroid extends Obiekt{
 	{
 		super(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu);
 		this.identity = METEOROID;
+		id = METEOROID;
 	}
 }

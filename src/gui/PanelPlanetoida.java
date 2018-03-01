@@ -15,5 +15,7 @@ public class PanelPlanetoida extends PanelObiekty{
 		
 		this.zapisz.addActionListener(new SavePlanetoidaActionListener());
 		add(this.zapisz);
+		add(Utilities.getInstance().panelImgLab);
+	     
 	}
 }

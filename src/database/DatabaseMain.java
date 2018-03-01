@@ -22,7 +22,7 @@ public class DatabaseMain {
 	
 	//String sql_post_stmt = "INSERT INTO REGISTRATION VALUES (100, 'Zara', 'Ali', 18)";
 	
-	String sql_post_stmt = "INSERT INTO GWIAZDA VALUES (3, 'Gwiazdka3', 1, 2, 3, 'obiekcik', 4, 'kalafior')";
+	String sql_post_stmt = "INSERT INTO GWIAZDA VALUES (4, 'Gwiazdka4', 1, 2, 3, 'obiekcik', 4, 'seler')";
 	
 	//String sql_get_data_stmt = "SELECT first, last, age FROM REGISTRATION WHERE first LIKE '%Zara%'";
 	

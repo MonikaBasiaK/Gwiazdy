@@ -2,11 +2,11 @@ package zwyklamateria.obiekty;
 
 public class Obiekt{
 	
-	public static String identity; 
-	public static String typ;
-	public static String ksiezyce;
-	public static String kategoria;
-	public static String gwiazdozbior;
+	public  String id; 
+	public  String typ;
+	public  String ksiezyce;
+	public  String kategoria;
+	public  String gwiazdozbior;
 		
 	protected String nazwa;
 	protected float masa;
@@ -63,9 +63,57 @@ public class Obiekt{
 	 public void setOObiegu(float okres_obiegu){
 		 this.okres_obiegu = okres_obiegu;
 	 }
+	 public void setIdentity(String identity){
+		 this.id = identity;
+	 }
 	 
-	public String showName(){
+	public String getName(){
 		return this.nazwa;
 	}
+	public float getMasa(){
+		 return this.masa;
+	 }
+	  public double getSrednica(){
+		 return this.srednica;
+	 }
+	  public int gettWiek(){
+		 return this.wiek;
+	 }
+	 public String getOGlowny(){
+		 return this.obiekt_glowny;
+	 }
+	 public float getOObiegu(){
+		 return this.okres_obiegu;
+	 }
+	public String getIdentity(){
+		return this.id;
+	}
 	
+	public void setGwiazdozbior(String gwiazdozbior){
+		this.gwiazdozbior = gwiazdozbior;
+	}
+	public String getGwiazdozbior(){
+		return this.gwiazdozbior;
+	}
+	
+	public void setKategoria(String k){
+		this.kategoria = k;
+	}
+	public String getKategoria(){
+		return this.kategoria;
+	}
+	public void setKsiezyce(String ks){
+		this.ksiezyce = ks;
+	
+	}
+	public String getKsiezyce(){
+		return this.ksiezyce;
+	}
+	
+	public void setTyp(String typ){
+		this.typ = typ;
+	}
+	public String getTyp(){
+		return this.typ;
+	}
 }

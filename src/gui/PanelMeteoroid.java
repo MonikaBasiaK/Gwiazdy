@@ -15,6 +15,8 @@ public class PanelMeteoroid extends PanelObiekty{
 		
 		this.zapisz.addActionListener(new SaveMeteoroidActionListener());
 		add(this.zapisz);
+		add(Utilities.getInstance().panelImgLab);
+	     
 	}
 
 }

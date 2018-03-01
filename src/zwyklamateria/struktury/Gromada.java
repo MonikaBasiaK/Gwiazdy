@@ -6,7 +6,9 @@ public class Gromada extends Struktura{
 	public Gromada(String name, int rozmiar){
 		super(name);
 		this.identity = Struktura.GROMADA;
+		id = GROMADA;
 		this.rozmiar = rozmiar;
+		rozmiarS = rozmiar;
 	}
 	
 }

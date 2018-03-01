@@ -54,15 +54,15 @@ public class PanelObiekty extends JPanel {
         tobiegu.setBounds(x/2 -10, 300, 200, 30);
         Utilities.getInstance().exit.setBounds(x/2 + 350, 20, 150, 30);
         helloLabel.setBounds(x-50, 20, 150, 30);
-        zapisz.setBounds(x/2 + 350, 400, 150, 30);
+        //zapisz.setBounds(x/2 + 350, 400, 150, 30);
         Utilities.getInstance().back.setBounds(x/4 -50, 20, 115, 30);
 
         //zapisz.addActionListener(new ButtonGoToHelloPanelActionListener());
        
         add(PanelObiekty.helloLabel);
         add(Utilities.getInstance().exit);
-        //add(Utilities.getInstance().back);
-        add(this.zapisz);
+        add(Utilities.getInstance().back);
+        //add(this.zapisz);
         add(this.nazwa);
         add(this.masa);
         add(this.srednica);

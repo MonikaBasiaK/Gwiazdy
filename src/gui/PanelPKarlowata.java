@@ -26,6 +26,8 @@ public class PanelPKarlowata extends PanelObiekty{
         
 		this.zapisz.addActionListener(new SavePKarlowataActionListener());
 		add(this.zapisz);
+		add(Utilities.getInstance().panelImgLab);
+	     
 		 
 	}
 

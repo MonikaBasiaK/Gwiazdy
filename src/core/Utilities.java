@@ -66,7 +66,8 @@ public class Utilities {
 		String typ;
 		FileReader fr = null;
 		String liniaJson = "";
-		
+		daneZPliku += liniaJson+"\n";
+   			
 		   // OTWIERANIE PLIKU:
 		   try {
 		     fr = new FileReader(file);

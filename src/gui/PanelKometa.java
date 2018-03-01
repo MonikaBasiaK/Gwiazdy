@@ -2,6 +2,7 @@ package gui;
 
 import javax.swing.JButton;
 
+import core.Utilities;
 import gui.listeners.SaveKometaActionListener;
 
 
@@ -17,7 +18,8 @@ public class PanelKometa extends PanelObiekty{
 		this.zapisz.addActionListener(new SaveKometaActionListener());
 		
 		add(this.zapisz);
-		
+		add(Utilities.getInstance().panelImgLab);
+	     
 	}
 
 }

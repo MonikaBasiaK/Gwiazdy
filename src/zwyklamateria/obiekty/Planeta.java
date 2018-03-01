@@ -13,5 +13,13 @@ public class Planeta  extends Obiekt{
 		this.ksiezyce = ksiezyce;
 		this.kategoria = kategoria;
 		this.identity = PLANETA;
+		id = PLANETA;
+	}
+	
+	public void setKsiezyce(String ksiezyce){
+		this.ksiezyce = ksiezyce;
+	}
+	public void setKategoria(String kategoria){
+		this.kategoria = kategoria;
 	}
 }

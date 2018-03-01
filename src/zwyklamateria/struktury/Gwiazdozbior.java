@@ -10,6 +10,7 @@ public class Gwiazdozbior extends Struktura{
 		super(name);
 		this.gwiazdy = gwiazdy;
 		this.identity = Struktura.GWIAZDOZBIOR;
+		id = GWIAZDOZBIOR;
 	}
 	
 }

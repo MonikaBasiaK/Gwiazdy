@@ -8,5 +8,6 @@ public class PlanetaKarlowata extends Obiekt{
 	{
 		super(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu);
 		this.identity = PLANETA_KARLOWATA;
+		id = PLANETA_KARLOWATA;
 	}
 }
