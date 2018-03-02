@@ -1,6 +1,7 @@
 package core;
 
 import gui.Window;
+import zwyklamateria.obiekty.Planeta;
 
 public class Main {
 
@@ -11,7 +12,6 @@ public class Main {
 		w = new Window();
 		Utilities.getInstance().odczytZPlikuJson("gwiazdy.txt");
 		//new DatabaseMain();
-		SQLiteJDBC.createTable();
 		SQLiteJDBC.select();
 		}
 

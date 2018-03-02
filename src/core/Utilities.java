@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Connection;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -42,12 +43,14 @@ public class Utilities {
     public Font g = new Font("Gabriola", Font.BOLD, 20);
     public String daneZPliku = new String("");
     public int x;
-        
+    public Connection dbConnection = null;
+
 	private Utilities()
 	{
 		x = centre()/4;
 		exit.addActionListener(new ButtonExitActionListener());
 		back.addActionListener(new ButtonGoToHelloPanelActionListener());
+		dbConnection = SQLiteJDBC.connect();
 	}
 
 	private static class UtilitiesHandler

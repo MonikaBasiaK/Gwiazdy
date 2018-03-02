@@ -22,91 +22,62 @@ import zwyklamateria.struktury.SuperGromada;
 
 public class SQLiteJDBC {
   
-	public static Connection connection( ) {
-      Connection c = null;
-      
-      try {
-         Class.forName("org.sqlite.JDBC");
-         c = DriverManager.getConnection("jdbc:sqlite:gwiazdy.db");
-      } catch ( Exception e ) {
-         System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-         System.exit(0);
-      }
-      System.out.println("Opened database successfully");
-	return c;
+	public static Connection connect() {
+		Connection c = null;
+		try {
+			Class.forName("org.sqlite.JDBC");
+			c = DriverManager.getConnection("jdbc:sqlite:gwiazdy.db");
+		} catch ( Exception e ) {
+			System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+			System.exit(0);
+		}
+		System.out.println("Opened database successfully");
+
+		Statement stmt;
+		try {
+			stmt = c.createStatement();
+			String sqlObiekt = "CREATE TABLE IF NOT EXISTS TOBIEKTY" +
+					"(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+					" identity VARCHAR(255), " +
+					" nazwa VARCHAR(255), " +
+					" masa FLOAT, " +
+					" srednica DOUBLE, " +
+					" wiek INTEGER not NULL, " +
+					" obiekt_glowny VARCHAR(255), " +
+					" okres_obiegu FLOAT)";
+
+			stmt.executeUpdate(sqlObiekt);
+			String sqlObiekty_additional = "CREATE TABLE IF NOT EXISTS OBIEKTY_ADDTIONAL_ATTRIBUTES" +
+					"(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+					" obiekt_id INTEGER, " +
+					" name VARCHAR(255), " +
+					" value VARCHAR(255))";
+
+			stmt.executeUpdate(sqlObiekty_additional);
+			String sqlStruktury = "CREATE TABLE IF NOT EXISTS Struktury" +
+					"(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+					" identity VARCHAR(255), " +
+					" nazwa VARCHAR(255))";
+
+			stmt.executeUpdate(sqlStruktury);
+			String sqlStruktury_additional = "CREATE TABLE IF NOT EXISTS STRUKTURY_ADDTIONAL_ATTRIBUTES" +
+					"(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+					" struktura_id INTEGER, " +
+					" name VARCHAR(255), " +
+					" value VARCHAR(255))";
+
+			stmt.executeUpdate(sqlStruktury_additional);
+			stmt.close();
+		} catch ( Exception e ) {
+			System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+			System.exit(0);
+		}
+		System.out.println("Table created successfully");
+		return c;
    }
-  
-	public static void createTable( ) {
-		Connection c = connection();
-		Statement stmt = null;
-		      
-	try {
-		stmt = c.createStatement();
-		  String sqlObiekt = "CREATE TABLE OBIEKTY" +
-		                 "(ID int NOT NULL," +
-		                 " identity VARCHAR(255), " +
-		                 " nazwa VARCHAR(255), " +
-		                 " masa FLOAT, " + 
-		                 " srednica DOUBLE, " + 
-		                 " wiek INTEGER not NULL, " + 
-		                 " obiektGlowny VARCHAR(255), " + 
-		                 " okresObiegu FLOAT, " + 
-		                 " PRIMARY KEY ( ID ))"; 
-		  
-		  stmt.executeUpdate(sqlObiekt);
-		  
-		  String sql = "";
-		  sql = "INSERT INTO OBIEKTY ( ID, identity, nazwa, masa, srednica, wiek, obiektGlowny, okresObiegu) " +
-                  " VALUES (0, '', '', 0, 0, 0, '', 0;"; 
-       	stmt.executeUpdate(sql);
-       	
-		  String sqlObiekty_additional = "CREATE TABLE OBIEKTY_ADDTIONAL_ATTRIBUTES" +
-	                 "(ID int NOT NULL," +
-	                 " obiekt_id INTEGER, " +
-	                 " name VARCHAR(255), " + 
-	                 " value VARCHAR(255), " + 
-	                 " PRIMARY KEY ( ID ))"; 
-	  
-	  stmt.executeUpdate(sqlObiekty_additional);
-	
-		  
-		  String sqlStruktury = "CREATE TABLE Struktury" +
-	                 "(ID int NOT NULL," +
-	                 " identity VARCHAR(255), " +
-	                 " nazwa VARCHAR(255), " +
-	                 " PRIMARY KEY ( ID ))"; 
-	  
-	  stmt.executeUpdate(sqlStruktury);
-	  
-	  sql = "INSERT INTO STRUKTURY ( ID, identity, nazwa) " +
-              " VALUES (0, '', '');"; 
-   	stmt.executeUpdate(sql);
-   	
-	  
-	  String sqlStruktury_additional = "CREATE TABLE STRUKTURY_ADDTIONAL_ATTRIBUTES" +
-              "(ID int NOT NULL," +
-              " struktura_id INTEGER, " +
-              " name VARCHAR(255), " + 
-              " value VARCHAR(255), " + 
-              " PRIMARY KEY ( ID ))"; 
 
-stmt.executeUpdate(sqlStruktury_additional);
-
-	
-		  stmt.close();
-		  c.close();
-			
-	} catch ( Exception e ) {
-        System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-        System.exit(0);
-     }
-     System.out.println("Table created successfully");
-  }
-	
-	
-	
 	public static void insert(){
-		Connection c = connection();
+		Connection c = connect();
 		Statement stmt = null;
 		
 		String sql = "";
@@ -222,7 +193,7 @@ stmt.executeUpdate(sqlStruktury_additional);
   }
 	
 	public static void select(){
-		Connection c = connection();
+		Connection c = connect();
 		Statement stmt = null;
 		
 		try {
@@ -371,7 +342,7 @@ stmt.executeUpdate(sqlStruktury_additional);
 	
 	public static void update() {
 	
-		   Connection c = connection();
+		   Connection c = connect();
 		   Statement stmt = null;
 		   
 		   try {
