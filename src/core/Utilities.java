@@ -10,6 +10,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -44,7 +47,7 @@ public class Utilities {
     public String daneZPliku = new String("");
     public int x;
     public Connection dbConnection = null;
-
+        
 	private Utilities()
 	{
 		x = centre()/4;
@@ -62,6 +65,7 @@ public class Utilities {
 	{
 		return UtilitiesHandler.instance;
 	}
+	
 	
 	public void odczytZPlikuJson(String file) throws ClassNotFoundException{
 		

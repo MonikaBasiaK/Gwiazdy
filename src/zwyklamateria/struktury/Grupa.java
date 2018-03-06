@@ -6,9 +6,9 @@ public class Grupa extends Struktura{
 	
 	public Grupa(String name, String galaktyki)
 	{
-		super(name);
+		super(name, GRUPA);
 		this.identity = Struktura.GRUPA;
-		id = GRUPA;
+		//id = GRUPA;
 		this.galaktyki = galaktyki;
 	}
 }

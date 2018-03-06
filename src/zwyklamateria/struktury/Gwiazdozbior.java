@@ -7,7 +7,7 @@ public class Gwiazdozbior extends Struktura{
 	protected String gwiazdy;	
 	
 	public Gwiazdozbior(String name, String gwiazdy){
-		super(name);
+		super(name, GWIAZDOZBIOR);
 		this.gwiazdy = gwiazdy;
 		this.identity = Struktura.GWIAZDOZBIOR;
 		id = GWIAZDOZBIOR;

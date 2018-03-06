@@ -1,7 +1,6 @@
 package core;
 
 import gui.Window;
-import zwyklamateria.obiekty.Planeta;
 
 public class Main {
 

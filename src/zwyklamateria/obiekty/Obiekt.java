@@ -1,11 +1,11 @@
 package zwyklamateria.obiekty;
 
-import core.Utilities;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.HashMap;
+
+import core.Utilities;
 
 public class Obiekt{
 	
@@ -14,7 +14,6 @@ public class Obiekt{
 	public  String ksiezyce;
 	public  String kategoria;
 	public  String gwiazdozbior;
-	HashMap<String, String> attributes = new HashMap<>();
 		
 	protected String nazwa;
 	protected float masa;
@@ -39,16 +38,19 @@ public class Obiekt{
 	public static String PLANETA_KARLOWATA = "PlanetaKarlowata";
 	public static String PLANETOIDA = "Planetoida";
 	public static String SATELITA = "Satelita";
+	HashMap<String, String> attributes = new HashMap<>();
 	
 	public Obiekt(String nazwa, float masa,  double srednica, int wiek, 
-			String obiekt_glowny, float okres_obiegu) {
+			String obiekt_glowny, float okres_obiegu, String id) throws SQLException {
 		
 		this.nazwa = nazwa;
 		this.masa = masa;
 		this.srednica = srednica;
 		this.wiek = wiek; 
 		this.obiekt_glowny = obiekt_glowny;
-		this.okres_obiegu = okres_obiegu;
+		this.okres_obiegu = okres_obiegu;  
+		this.id = id;
+		this.persist();
 	}
 	
 	public Obiekt(){}
@@ -124,19 +126,22 @@ public class Obiekt{
 	public String getTyp(){
 		return this.typ;
 	}
-
+	
 	public void persist() {
-		try {
+		try{
 			Connection c = Utilities.getInstance().dbConnection;
-			String sql = "INSERT INTO OBIEKTY ( ID, identity, nazwa, masa, srednica, wiek, obiektGlowny, okresObiegu) " +
-					" VALUES (null, ?, ?, ?, ?, ?, ?, ?);";
+			String sql = "INSERT INTO TOBIEKTY (ID, identity, nazwa, masa, srednica, wiek, obiektGlowny, okresObiegu) " +
+	                " VALUES (null, ?, ?, ?, ?, ?, ?, ?);"; 
 			PreparedStatement stmt = c.prepareStatement(sql);
 			stmt.setString(1, this.id);
 			stmt.setString(2, this.nazwa);
 			stmt.setFloat(3, this.masa);
-
-			stmt.executeUpdate();
-		} catch (SQLException e) {
+			stmt.setDouble(4,  this.srednica);
+			stmt.setInt(5, this.wiek);
+			stmt.setString(6, this.obiekt_glowny);
+			stmt.setFloat(7, this.okres_obiegu);
+			stmt.executeUpdate(sql);
+		}catch (SQLException e){
 			e.printStackTrace();
 		}
 	}
