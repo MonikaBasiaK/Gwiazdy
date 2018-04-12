@@ -2,6 +2,7 @@ package zwyklamateria.struktury;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 
@@ -27,12 +28,11 @@ public class Struktura{
 	public static String GROMADA = "Gromada";
 	public static String SUPERGROMADA = "SuperGromada";
 	
-	HashMap<String, Object> attributes = new HashMap<String, Object>();
+	HashMap<String, String> attributes = new HashMap<String, String>();
 	
 	public Struktura(String name, String id){
 		this.name = name;	
 		this.id = id;
-		persist();
 	}
 	
 	public void setName(String name) {
@@ -72,17 +72,28 @@ public class Struktura{
 	public String getOpis(){
 		return this.opisS;
 	}
-	public void persist() {
+	public int persist() {
 		try{
 			Connection c = Utilities.getInstance().dbConnection;
 			String sql = "INSERT INTO TSTRUKTURY (ID, identity, nazwa) " +
-	                " VALUES (null, ?, ?);"; 
+	                " VALUES (null, ?, ?);";
 			PreparedStatement stmt = c.prepareStatement(sql);
 			stmt.setString(1, this.id);
 			stmt.setString(2, this.name);
-			stmt.executeUpdate(sql);
+			stmt.executeUpdate();
+
+			sql = "SELECT max(ID) FROM TSTRUKTURY " +
+					" WHERE identity = ? and nazwa = ?;";
+			PreparedStatement stmt2 = c.prepareStatement(sql);
+			stmt2.setString(1, this.id);
+			stmt2.setString(2, this.name);
+			ResultSet max = stmt2.executeQuery();
+
+			return max.getInt(1);
+
 		}catch (SQLException e){
 			e.printStackTrace();
 		}
+		return -1;
 	}
 }

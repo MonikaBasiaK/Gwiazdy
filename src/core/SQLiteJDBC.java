@@ -1,9 +1,6 @@
 package core;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 import zwyklamateria.obiekty.Gwiazda;
 import zwyklamateria.obiekty.Kometa;
@@ -21,65 +18,64 @@ import zwyklamateria.struktury.Struktura;
 import zwyklamateria.struktury.SuperGromada;
 
 public class SQLiteJDBC {
-  
-	public static Connection connect() {
-	      Connection c = null;
-	      try {
-			         Class.forName("org.sqlite.JDBC");
-			         c = DriverManager.getConnection("jdbc:sqlite:gwiazdy.db");
-		      }catch ( Exception e ) {
-			         System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-			         System.exit(0);
-		    }
-		    System.out.println("Opened database successfully");
-			
-	        Statement stmt = null;
-		    try {
-	     			stmt = c.createStatement();
-	     			String sqlObiekt = "CREATE TABLE IF NOT EXISTS TOBIEKTY" +
-	     		                 "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
-	     		                 " identity VARCHAR(255), " +
-	     		                 " nazwa VARCHAR(255), " +
-	     		                 " masa FLOAT, " + 
-	     		                 " srednica DOUBLE, " + 
-	     		                 " wiek INTEGER not NULL, " + 
-	     		                 " obiektGlowny VARCHAR(255), " + 
-	     		                 " okresObiegu FLOAT)"; 
-	     		  
-	     			stmt.executeUpdate(sqlObiekt);
-	     		   	String sqlObiekty_additional = "CREATE TABLE IF NOT EXISTS TOBIEKTY_ADDTIONAL_ATTRIBUTES" +
-		     	                 "(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-		     	                 " obiekt_id INTEGER, " +
-		     	                 " name VARCHAR(255), " + 
-		     	                 " value VARCHAR(255))"; 
-	     	  
-	     		   	stmt.executeUpdate(sqlObiekty_additional);
-	     		   	String sqlStruktury = "CREATE TABLE IF NOT EXISTS TSTRUKTURY" +
-		     	                 "(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-		     	                 " identity VARCHAR(255), " +
-		     	                 " nazwa VARCHAR(255))"; 
-	     	  
-	     		   	stmt.executeUpdate(sqlStruktury);	
-	     		   	String sqlStruktury_additional = "CREATE TABLE IF NOT EXISTS TSTRUKTURY_ADDTIONAL_ATTRIBUTES" +
-			                   "(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-			                   " struktura_id INTEGER, " +
-			                   " name VARCHAR(255), " + 
-			                   " value VARCHAR(255))"; 
 
-	     		   	stmt.executeUpdate(sqlStruktury_additional);
-	     		   	stmt.close();
-	     			
-	     	} catch ( Exception e ) 
-	     		{
-		             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-		             System.exit(0);
-	     		}
-			    System.out.println("Table created successfully");
-			    return c;
-}
+    public static Connection connect() {
+        Connection c = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:gwiazdy.db");
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        System.out.println("Opened database successfully");
+
+        Statement stmt = null;
+        try {
+            stmt = c.createStatement();
+            String sqlObiekt = "CREATE TABLE IF NOT EXISTS TOBIEKTY" +
+                    "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    " identity VARCHAR(255), " +
+                    " nazwa VARCHAR(255), " +
+                    " masa FLOAT, " +
+                    " srednica DOUBLE, " +
+                    " wiek INTEGER not NULL, " +
+                    " obiektGlowny VARCHAR(255), " +
+                    " okresObiegu FLOAT)";
+
+            stmt.executeUpdate(sqlObiekt);
+            String sqlObiekty_additional = "CREATE TABLE IF NOT EXISTS TOBIEKTY_ADDTIONAL_ATTRIBUTES" +
+                    "(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    " obiekt_id INTEGER, " +
+                    " name VARCHAR(255), " +
+                    " value VARCHAR(255))";
+
+            stmt.executeUpdate(sqlObiekty_additional);
+            String sqlStruktury = "CREATE TABLE IF NOT EXISTS TSTRUKTURY" +
+                    "(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    " identity VARCHAR(255), " +
+                    " nazwa VARCHAR(255))";
+
+            stmt.executeUpdate(sqlStruktury);
+            String sqlStruktury_additional = "CREATE TABLE IF NOT EXISTS TSTRUKTURY_ADDTIONAL_ATTRIBUTES" +
+                    "(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    " struktura_id INTEGER, " +
+                    " name VARCHAR(255), " +
+                    " value VARCHAR(255))";
+
+            stmt.executeUpdate(sqlStruktury_additional);
+            stmt.close();
+
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        System.out.println("Table created successfully");
+        return c;
+    }
 
 	/*
-	public static void insert(){
+    public static void insert(){
 		Connection c = connect();
 		Statement stmt = null;
 		
@@ -194,192 +190,180 @@ public class SQLiteJDBC {
      }
      System.out.println("Records created successfully");
   }*/
-	
-	public static void select(){
-		Connection c = connect();
-		Statement stmt = null;
-		
-		try {
-			c.setAutoCommit(false);
-			System.out.println("Opened database successfully");
-			stmt = c.createStatement();
-			ResultSet rs = null;
-			ResultSet rs_additional_attributes = null;
-			
-			rs = stmt.executeQuery( "SELECT * FROM OBIEKTY;" );
-			//add_objects_from_db_to_list();
-				while ( rs.next() ) {
-					 int id = rs.getInt("ID");
-					 String identity = rs.getString("identity");
-			         String  nazwa = rs.getString("nazwa");
-			         float masa  = rs.getFloat("masa");
-			         double srednica = rs.getDouble("srednica");
-			         int wiek = rs.getInt("wiek");
-			         String obiekt_glowny = rs.getString("obiektGlowny");
-			         float okres_obiegu = rs.getFloat("okresObiegu");
-			         		
-			         rs_additional_attributes = stmt.executeQuery( "SELECT * FROM OBIEKTY_ADDTIONAL_ATTRIBUTES WHERE obiekt_id==id;" );
-			         String name, value = "";	
-			            
-			         if(identity.equals(Obiekt.GWIAZDA))
-			         {
-			        	name = rs_additional_attributes.getString("name");
-					    value = rs_additional_attributes.getString("value");
-					         
-					  if(name.equals("gwiazdozbior"))
-					  Listy.obiekty.add(new Gwiazda(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu, value));
-			         }
-			         
-			         else if(identity.equals(Obiekt.KOMETA))
-			         {
-			        	 Listy.obiekty.add(new Kometa(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu));
-				     }
-			         
-			         else if(identity.equals(Obiekt.METEOROID))
-			         {
-			        	 Listy.obiekty.add(new Meteoroid(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu));
-				     }
-			         else if(identity.equals(Obiekt.PLANETA))
-			         {
-			        	 Planeta planeta = new Planeta(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu, "", "");
-			        	 while ( rs_additional_attributes.next() ) {
-				        	 name = rs_additional_attributes.getString("name");
-					         value = rs_additional_attributes.getString("value");
-					         if(name.equals("ksiezyce")) planeta.setKsiezyce(value);
-					         else if(name.equals("kategoria")) planeta.setKategoria(value);
-			        	 }
-			        	 Listy.obiekty.add(planeta);
-				    }
-			        
-			         else if(identity.equals(Obiekt.PLANETA_KARLOWATA))
-			         {
-			        	 Listy.obiekty.add(new PlanetaKarlowata(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu));
-				     }
-			         
-			         else if(identity.equals(Obiekt.PLANETOIDA))
-			         {
-			        	 Listy.obiekty.add(new Planetoida(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu));
-				     }
-			         
-			         else if(identity.equals(Obiekt.SATELITA))
-			         {
-			        	name = rs_additional_attributes.getString("name");
-					    value = rs_additional_attributes.getString("value");
-					         
-					  if(name.equals("typ"))
-					  Listy.obiekty.add(new Satelita(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu, value));
-			         }
-			         //System.out.println( "ID = " + id );
-			         //System.out.println( "NAME = " + nazwa );
-				
-			}
-			
-			
-			
-				rs = stmt.executeQuery( "SELECT * FROM STRUKTURY;" );
-				rs_additional_attributes = stmt.executeQuery( "SELECT * FROM STRUKTURY_ADDTIONAL_ATTRIBUTES WHERE struktura_id==id;" );
-				while ( rs.next() ) {
-		         int id = rs.getInt("id");
-		         String identity = rs.getString("identity");
-		         String nazwa = rs.getString("nazwa");
-		         
-		         String name, value = "";
-		         
-		         if(identity.equals(Struktura.GALAKTYKA))
-		         {
-		        	 Galaktyka galaktyka = new Galaktyka(nazwa, "", 0, 0);
-			     
-		        	 while ( rs_additional_attributes.next() ) 
-		        	 {
-		        	 name = rs_additional_attributes.getString("name");
-			         value = rs_additional_attributes.getString("value");
-			         
-			         if(name.equals("typ")) galaktyka.setTyp(value);
-			         else if(name.equals("grubosc")) galaktyka.setGrubosc(Integer.parseInt(value));
-			         else if(name.equals("szacowana_ilosc_gwiazd")) galaktyka.setSzacowana_ilosc_gwiazd(Long.parseLong(value));
-		         	} 
-		         	Listy.struktury.add(galaktyka);
-		         }
-		         
-		         else if(identity.equals(Struktura.GROMADA))
-		         {
-		        	 name = rs_additional_attributes.getString("name");
-			         value = rs_additional_attributes.getString("value");
-			         
-			         if(name.equals("rozmiar"))	Listy.struktury.add(new Gromada(nazwa, Integer.parseInt(value)));
-		         }
-		         else if(identity.equals(Struktura.GRUPA))
-		         {
-		        	 name = rs_additional_attributes.getString("name");
-			         value = rs_additional_attributes.getString("value");
-			         
-			         if(name.equals("galaktyki"))	Listy.struktury.add(new Grupa(nazwa, value));
-		         }
-		         else if(identity.equals(Struktura.GWIAZDOZBIOR))
-		         {
-		        	 name = rs_additional_attributes.getString("name");
-			         value = rs_additional_attributes.getString("value");
-			         
-			         if(name.equals("gwiazdy"))	Listy.struktury.add(new Gwiazdozbior(nazwa, value));
-		         }
-		         else if(identity.equals(Struktura.SUPERGROMADA))
-		         {
-		        	 name = rs_additional_attributes.getString("name");
-			         value = rs_additional_attributes.getString("value");
-			         
-			         if(name.equals("opis")) Listy.struktury.add(new SuperGromada(nazwa, value));
-		         }
-		      
-			}
-	      rs.close();
-	      rs_additional_attributes.close();
-	      stmt.close();
-	      c.close();
-	   } catch ( Exception e ) {
-	      System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-	      System.exit(0);
-	   }
-	   System.out.println("Operation done successfully");
-	  }
-	
-	
-	public static void update() {
-	
-		   Connection c = connect();
-		   Statement stmt = null;
-		   
-		   try {
-		      c.setAutoCommit(false);
-		      System.out.println("Opened database successfully");
 
-		      stmt = c.createStatement();
-		      String sql = "UPDATE OBIEKTY set WIEK = 25000 where ID=1;";
-		      stmt.executeUpdate(sql);
-		      c.commit();
+    public static void select() {
+        Connection c = connect();
+        Statement stmt = null;
 
-		      ResultSet rs = stmt.executeQuery( "SELECT * FROM OBIEKTY;" );
-		      
-		      while ( rs.next() ) {
-		    	  int id = rs.getInt("ID");
-		    	  String identity = rs.getString("identity");
-			      String  nazwa = rs.getString("nazwa");
-			      int wiek = rs.getInt("wiek");
-			         
-		         System.out.println( "ID = " + id );
-		         System.out.println( "NAZWA = " + nazwa );
-		         System.out.println( "IDENTITY = " + identity );
-		         System.out.println( "WIEK = " + wiek );
-		         System.out.println();
-		      }
-		      rs.close();
-		      stmt.close();
-		      c.close();
-		   } catch ( Exception e ) {
-		      System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-		      System.exit(0);
-		   }
-		    System.out.println("Operation done successfully");
-		   }
-	
-	
+        try {
+            c.setAutoCommit(false);
+            System.out.println("Opened database successfully");
+            stmt = c.createStatement();
+            ResultSet rs = null;
+            ResultSet rs_additional_attributes = null;
+
+            rs = stmt.executeQuery("SELECT * FROM TOBIEKTY;");
+            //add_objects_from_db_to_list();
+            while (rs.next()) {
+                int id = rs.getInt("ID");
+                String identity = rs.getString("identity");
+                String nazwa = rs.getString("nazwa");
+                float masa = rs.getFloat("masa");
+                double srednica = rs.getDouble("srednica");
+                int wiek = rs.getInt("wiek");
+                String obiekt_glowny = rs.getString("obiektGlowny");
+                float okres_obiegu = rs.getFloat("okresObiegu");
+
+                rs_additional_attributes = stmt.executeQuery("SELECT * FROM TOBIEKTY_ADDTIONAL_ATTRIBUTES WHERE obiekt_id==id;");
+                String name, value = "";
+
+                if (identity.equals(Obiekt.GWIAZDA)) {
+                    name = rs_additional_attributes.getString("name");
+                    value = rs_additional_attributes.getString("value");
+
+                    if (name.equals("gwiazdozbior"))
+                        Listy.obiekty.add(new Gwiazda(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu, value));
+                } else if (identity.equals(Obiekt.KOMETA)) {
+                    Listy.obiekty.add(new Kometa(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu));
+                } else if (identity.equals(Obiekt.METEOROID)) {
+                    Listy.obiekty.add(new Meteoroid(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu));
+                } else if (identity.equals(Obiekt.PLANETA)) {
+                    Planeta planeta = new Planeta(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu, "", "");
+                    while (rs_additional_attributes.next()) {
+                        name = rs_additional_attributes.getString("name");
+                        value = rs_additional_attributes.getString("value");
+                        if (name.equals("ksiezyce")) planeta.setKsiezyce(value);
+                        else if (name.equals("kategoria")) planeta.setKategoria(value);
+                    }
+                    Listy.obiekty.add(planeta);
+                } else if (identity.equals(Obiekt.PLANETA_KARLOWATA)) {
+                    Listy.obiekty.add(new PlanetaKarlowata(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu));
+                } else if (identity.equals(Obiekt.PLANETOIDA)) {
+                    Listy.obiekty.add(new Planetoida(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu));
+                } else if (identity.equals(Obiekt.SATELITA)) {
+                    name = rs_additional_attributes.getString("name");
+                    value = rs_additional_attributes.getString("value");
+
+                    if (name.equals("typ"))
+                        Listy.obiekty.add(new Satelita(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu, value));
+                }
+                //System.out.println( "ID = " + id );
+                //System.out.println( "NAME = " + nazwa );
+
+            }
+
+
+            rs = stmt.executeQuery("SELECT * FROM TSTRUKTURY;");
+            rs_additional_attributes = stmt.executeQuery("SELECT * FROM TSTRUKTURY_ADDTIONAL_ATTRIBUTES WHERE struktura_id==id;");
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String identity = rs.getString("identity");
+                String nazwa = rs.getString("nazwa");
+
+                String name, value = "";
+
+                if (identity.equals(Struktura.GALAKTYKA)) {
+                    Galaktyka galaktyka = new Galaktyka(nazwa, "", "0", "0");
+
+                    while (rs_additional_attributes.next()) {
+                        name = rs_additional_attributes.getString("name");
+                        value = rs_additional_attributes.getString("value");
+
+                        if (name.equals("typ")) galaktyka.setTyp(value);
+                        else if (name.equals("grubosc")) galaktyka.setGrubosc(value);
+                        else if (name.equals("szacowana_ilosc_gwiazd"))
+                            galaktyka.setSzacowana_ilosc_gwiazd(value);
+                    }
+                    Listy.struktury.add(galaktyka);
+                } else if (identity.equals(Struktura.GROMADA)) {
+                    name = rs_additional_attributes.getString("name");
+                    value = rs_additional_attributes.getString("value");
+
+                    if (name.equals("rozmiar")) Listy.struktury.add(new Gromada(nazwa, Integer.parseInt(value)));
+                } else if (identity.equals(Struktura.GRUPA)) {
+                    name = rs_additional_attributes.getString("name");
+                    value = rs_additional_attributes.getString("value");
+
+                    if (name.equals("galaktyki")) Listy.struktury.add(new Grupa(nazwa, value));
+                } else if (identity.equals(Struktura.GWIAZDOZBIOR)) {
+                    name = rs_additional_attributes.getString("name");
+                    value = rs_additional_attributes.getString("value");
+
+                    if (name.equals("gwiazdy")) Listy.struktury.add(new Gwiazdozbior(nazwa, value));
+                } else if (identity.equals(Struktura.SUPERGROMADA)) {
+                    name = rs_additional_attributes.getString("name");
+                    value = rs_additional_attributes.getString("value");
+
+                    if (name.equals("opis")) Listy.struktury.add(new SuperGromada(nazwa, value));
+                }
+
+            }
+            rs.close();
+            rs_additional_attributes.close();
+            stmt.close();
+            c.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        System.out.println("Operation done successfully");
+    }
+
+
+    public static void update() {
+
+        Connection c = connect();
+        Statement stmt = null;
+
+        try {
+            c.setAutoCommit(false);
+            System.out.println("Opened database successfully");
+
+            stmt = c.createStatement();
+            String sql = "UPDATE TOBIEKTY set WIEK = 25000 where ID=1;";
+            stmt.executeUpdate(sql);
+            c.commit();
+
+            ResultSet rs = stmt.executeQuery("SELECT * FROM TOBIEKTY;");
+
+            while (rs.next()) {
+                int id = rs.getInt("ID");
+                String identity = rs.getString("identity");
+                String nazwa = rs.getString("nazwa");
+                int wiek = rs.getInt("wiek");
+
+                System.out.println("ID = " + id);
+                System.out.println("NAZWA = " + nazwa);
+                System.out.println("IDENTITY = " + identity);
+                System.out.println("WIEK = " + wiek);
+                System.out.println();
+            }
+            rs.close();
+            stmt.close();
+            c.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        System.out.println("Operation done successfully");
+    }
+
+    public static void persist_tstruktury_addtional_attributes(int struct_id, String name, String value) {
+        try {
+            Connection c = Utilities.getInstance().dbConnection;
+
+            String sql = "INSERT INTO TSTRUKTURY_ADDTIONAL_ATTRIBUTES (ID, struktura_id, name, value) " +
+                    " VALUES (null, ?, ?, ?);";
+            PreparedStatement stmt = null;
+
+            stmt = c.prepareStatement(sql);
+            stmt.setInt(1, struct_id);
+            stmt.setString(2, name);
+            stmt.setString(3, value);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
