@@ -38,7 +38,7 @@ public class Galaktyka extends Struktura{
 		try{
 			Connection c = Utilities.getInstance().dbConnection;
 			Statement s = c.createStatement();	
-			ResultSet max = s.executeQuery( "SELECT max(ID) FROM OBIEKTY;" );
+			ResultSet max = s.executeQuery( "SELECT max(ID) FROM TSTRUKTURY;" );
 			int this_struct_id = max.getInt(1) + 1;
 
 			String sql = "INSERT INTO TSTRUKTURY_ADDTIONAL_ATTRIBUTES (ID, struktura_id, name, value) " +
