@@ -12,4 +12,9 @@ public class Kometa  extends Obiekt{
 		//hm.put(this.identity, KOMETA);
 		//id = KOMETA;
 	}
+	
+	public int persist() {
+		super.persist();
+		return 0;
+	}
 }

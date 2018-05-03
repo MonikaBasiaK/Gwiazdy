@@ -14,11 +14,18 @@ public class SaveGalaktykaActionLIstener implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		Galaktyka galaktyka = new Galaktyka(PanelStruktury.tnazwa.getText(), String.valueOf(PanelGalaktyka.comboTyp.getSelectedItem()),
+		
+		Galaktyka galaktyka = new Galaktyka(PanelStruktury.tnazwa.getText(), String.valueOf(PanelGalaktyka.comboTyp.getSelectedItem()), 
 				PanelGalaktyka.tgrubosc.getText(), PanelGalaktyka.tszacowana_ilosc_gwiazd.getText());
-		galaktyka.persist();
+				
+		try {
+			galaktyka.persist();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Listy.struktury.add(galaktyka);
-
+		
 		Main.w.changePanel(new HelloPanel());
 		
 	}

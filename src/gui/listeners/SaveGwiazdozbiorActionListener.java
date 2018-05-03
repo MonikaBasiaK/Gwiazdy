@@ -15,8 +15,10 @@ public class SaveGwiazdozbiorActionListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 			
-		Listy.struktury_new.add(new Gwiazdozbior(PanelStruktury.tnazwa.getText(), PanelGwiazdozbior.displayArea.getText()));
-			
+		Gwiazdozbior gwiazdozbior = new Gwiazdozbior(PanelStruktury.tnazwa.getText(), 
+				PanelGwiazdozbior.displayArea.getText());
+		gwiazdozbior.persist();
+		Listy.struktury.add(gwiazdozbior);
 		Main.w.changePanel(new HelloPanel());
 	}
 

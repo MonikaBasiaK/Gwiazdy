@@ -1,59 +1,38 @@
 package zwyklamateria.obiekty;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-
-import core.Utilities;
+import core.SQLiteJDBC;
 
 public class Planeta  extends Obiekt{
 	
-	String ksiezyce = "KS";
-	String kategoria = "KAT";
+	public static final String ksiezyce = "KS";
+	public static final String kategoria = "KAT";
 	//String identity = "ID_PL";
 	
 	public Planeta(String nazwa, float masa,  double srednica, int wiek, 
 			String obiekt_glowny, float okres_obiegu, String ksiezyce, String kategoria) throws SQLException
 	{
 		super(nazwa, masa, srednica, wiek, obiekt_glowny, okres_obiegu, PLANETA);
-		attributes.put(this.ksiezyce, ksiezyce);
-		attributes.put(this.kategoria, kategoria);
+		attributes.put(Planeta.ksiezyce, ksiezyce);
+		attributes.put(Planeta.kategoria, kategoria);
 		//attributes.put(this.identity, PLANETA);
 	}
 	
 	public void setKsiezyce(String ksiezyce)
 	{
-		this.attributes.put(this.ksiezyce, ksiezyce);
+		this.attributes.put(Planeta.ksiezyce, ksiezyce);
 	}
 	public void setKategoria(String kategoria)
 	{
-		this.attributes.put(this.kategoria, kategoria);
+		this.attributes.put(Planeta.kategoria, kategoria);
 	}
-	public void persist() {
-		try{
-			Connection c = Utilities.getInstance().dbConnection;
-			Statement s = c.createStatement();	
-			ResultSet max = s.executeQuery( "SELECT max(ID) FROM OBIEKTY;" );
-			int this_obiekt_id = max.getInt(1) + 1;
-
-			String sql = "INSERT INTO TOBIEKTY_ADDTIONAL_ATTRIBUTES (ID, obiekt_id, name, value)"  +
-                    "VALUES (null, ?, 'ksiezyce', ?);";
-			PreparedStatement stmt = c.prepareStatement(sql);
-			stmt.setInt(1, this_obiekt_id);
-			stmt.setString(2, attributes.get("KS"));
-        	stmt.executeUpdate(sql);
-        	
-        	sql = "INSERT INTO TOBIEKTY_ADDTIONAL_ATTRIBUTES (ID, obiekt_id, name, value)"  +
-                    "VALUES (null, ?, 'identity', ?);";
-        	stmt.setInt(1, this_obiekt_id);
-			stmt.setString(2, attributes.get("KAT"));
-        	stmt.executeUpdate(sql);
-        	
-			  
-		}catch (SQLException e){
-			e.printStackTrace();
-		}
+	public int persist() {
+		int object_id = super.persist();
+		
+		SQLiteJDBC.persist_tobiekty_additional_attributes(object_id, Planeta.ksiezyce, attributes.get(Planeta.ksiezyce));
+		SQLiteJDBC.persist_tobiekty_additional_attributes(object_id, Planeta.kategoria, attributes.get(Planeta.kategoria));
+		
+		return 0;
+		
 	}
 }

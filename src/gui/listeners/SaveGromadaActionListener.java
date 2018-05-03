@@ -15,7 +15,9 @@ public class SaveGromadaActionListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		Listy.struktury.add(new Gromada(PanelStruktury.tnazwa.getText(), Integer.parseInt(PanelGromada.trozmiar.getText())));
+		Gromada gromada = new Gromada(PanelStruktury.tnazwa.getText(), PanelGromada.trozmiar.getText());
+		gromada.persist();
+		Listy.struktury.add(gromada);
 		
 		Main.w.changePanel(new HelloPanel());
 	

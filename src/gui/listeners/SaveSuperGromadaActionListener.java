@@ -14,7 +14,11 @@ public class SaveSuperGromadaActionListener implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Listy.struktury.add(new SuperGromada(PanelStruktury.tnazwa.getText(), PanelSupergromada.topis.getText()));
+		
+		SuperGromada supergromada = new SuperGromada(PanelStruktury.tnazwa.getText(), 
+				PanelSupergromada.topis.getText());
+		supergromada.persist();
+		Listy.struktury.add(supergromada);
 		
 		Main.w.changePanel(new HelloPanel());
 		}

@@ -76,21 +76,20 @@ public class Struktura{
 		try{
 			Connection c = Utilities.getInstance().dbConnection;
 			String sql = "INSERT INTO TSTRUKTURY (ID, identity, nazwa) " +
-	                " VALUES (null, ?, ?);";
+	                " VALUES (null, ?, ?);"; 
 			PreparedStatement stmt = c.prepareStatement(sql);
 			stmt.setString(1, this.id);
 			stmt.setString(2, this.name);
-			stmt.executeUpdate();
-
-			sql = "SELECT max(ID) FROM TSTRUKTURY " +
-					" WHERE identity = ? and nazwa = ?;";
+			stmt.executeUpdate(sql);
+			
+			sql = "SELECT max(ID) FROM TSRUKTURY" +
+					"WHERE identity = ? and nazwa = ?;";
 			PreparedStatement stmt2 = c.prepareStatement(sql);
 			stmt2.setString(1, this.id);
 			stmt2.setString(2, this.name);
-			ResultSet max = stmt2.executeQuery();
-
+			ResultSet max = stmt2.executeQuery(sql);
+			
 			return max.getInt(1);
-
 		}catch (SQLException e){
 			e.printStackTrace();
 		}

@@ -12,4 +12,10 @@ public class Meteoroid extends Obiekt{
 		//hm.put(this.identity, METEOROID);
 		//id = METEOROID;
 	}
+	
+	public int persist() {
+		super.persist();
+		return 0;
+		
+	}
 }

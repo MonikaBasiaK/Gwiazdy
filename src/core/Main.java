@@ -9,6 +9,7 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 
 		w = new Window();
+		//Utilities.getInstance().odczytZPlikuJson("gwiazdy.txt");
 		//new DatabaseMain();
 		SQLiteJDBC.select();
 		}

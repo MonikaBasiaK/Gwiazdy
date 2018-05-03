@@ -13,4 +13,10 @@ public class Planetoida extends Obiekt{
 		//hm.put(this.identity, PLANETOIDA);
 		//id = PLANETOIDA;
 	}
+	
+	public int persist() {
+		super.persist();
+		return 0;
+		
+	}
 }

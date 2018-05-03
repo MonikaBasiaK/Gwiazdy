@@ -10,8 +10,9 @@ public class ButtonExitActionListener implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Utilities.getInstance().shutDown();
-     	System.exit(0);
+	
+     	Utilities.getInstance().zapisDoPlikuJson("gwiazdy.txt");
+     	System.exit(0);	
 	}
 
 }

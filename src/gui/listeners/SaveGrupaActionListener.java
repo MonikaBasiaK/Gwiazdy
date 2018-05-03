@@ -15,7 +15,9 @@ public class SaveGrupaActionListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		Listy.struktury.add(new Grupa(PanelStruktury.tnazwa.getText(), PanelGrupa.tgalaktyki.getText()));
+		Grupa grupa = new Grupa(PanelStruktury.tnazwa.getText(), PanelGrupa.tgalaktyki.getText());
+		grupa.persist();
+		Listy.struktury.add(grupa);
 	
 		Main.w.changePanel(new HelloPanel());
 	}

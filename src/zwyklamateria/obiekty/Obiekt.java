@@ -2,6 +2,7 @@ package zwyklamateria.obiekty;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 
@@ -50,7 +51,6 @@ public class Obiekt{
 		this.obiekt_glowny = obiekt_glowny;
 		this.okres_obiegu = okres_obiegu;  
 		this.id = id;
-		this.persist();
 	}
 	
 	public Obiekt(){}
@@ -127,7 +127,7 @@ public class Obiekt{
 		return this.typ;
 	}
 	
-	public void persist() {
+	public int persist() {
 		try{
 			Connection c = Utilities.getInstance().dbConnection;
 			String sql = "INSERT INTO TOBIEKTY (ID, identity, nazwa, masa, srednica, wiek, obiektGlowny, okresObiegu) " +
@@ -141,8 +141,23 @@ public class Obiekt{
 			stmt.setString(6, this.obiekt_glowny);
 			stmt.setFloat(7, this.okres_obiegu);
 			stmt.executeUpdate(sql);
+			
+			sql = "SELECT max(ID) FROM TOBIEKTY"+
+					"WHERE identity=? AND nazwa=? AND masa=? AND srednica=? AND wiek=? AND obiektGlowny=? AND okresObiegu=?;";
+			PreparedStatement stmt2 = c.prepareStatement(sql);
+			stmt2.setString(1, this.id);
+			stmt2.setString(2, this.nazwa);
+			stmt2.setFloat(3, this.masa);
+			stmt2.setDouble(4,  this.srednica);
+			stmt2.setInt(5, this.wiek);
+			stmt2.setString(6, this.obiekt_glowny);
+			stmt2.setFloat(7, this.okres_obiegu);
+			ResultSet max = stmt2.executeQuery(sql);
+			return max.getInt(1);
+			
 		}catch (SQLException e){
 			e.printStackTrace();
 		}
+		return -1;
 	}
 }

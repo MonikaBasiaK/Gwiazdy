@@ -12,4 +12,9 @@ public class PlanetaKarlowata extends Obiekt{
 		//hm.put(this.identity, PLANETA_KARLOWATA);
 		//id = PLANETA_KARLOWATA;
 	}
+	public int persist() {
+		super.persist();
+		return 0;
+		
+	}
 }
