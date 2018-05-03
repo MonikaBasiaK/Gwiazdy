@@ -10,12 +10,12 @@ import core.Utilities;
 
 public class Struktura{
 
-	protected String name;
-	String id;
-	String typS, galaktykiS, gwiazdyS, opisS;
-	int gruboscS;
-	long szacowana_ilosc_gwiazdS;
-	int rozmiarS;
+	private String name;
+	private String id;
+	private String typS, galaktykiS, gwiazdyS, opisS;
+	private int gruboscS;
+	private long szacowana_ilosc_gwiazdS;
+	private int rozmiarS;
 	
 		
 	public static int NAZWA = 0;
@@ -75,19 +75,19 @@ public class Struktura{
 	public int persist() {
 		try{
 			Connection c = Utilities.getInstance().dbConnection;
-			String sql = "INSERT INTO TSTRUKTURY (ID, identity, nazwa) " +
-	                " VALUES (null, ?, ?);"; 
+			String sql = "INSERT INTO TSTRUKTURY (ID, identity, nazwa)" +
+	                " VALUES (null, ?, ?);";
 			PreparedStatement stmt = c.prepareStatement(sql);
 			stmt.setString(1, this.id);
 			stmt.setString(2, this.name);
-			stmt.executeUpdate(sql);
+			stmt.executeUpdate();
 			
-			sql = "SELECT max(ID) FROM TSRUKTURY" +
-					"WHERE identity = ? and nazwa = ?;";
+			sql = "SELECT max(ID) FROM TSTRUKTURY" +
+					" WHERE identity = ? and nazwa = ?;";
 			PreparedStatement stmt2 = c.prepareStatement(sql);
 			stmt2.setString(1, this.id);
 			stmt2.setString(2, this.name);
-			ResultSet max = stmt2.executeQuery(sql);
+			ResultSet max = stmt2.executeQuery();
 			
 			return max.getInt(1);
 		}catch (SQLException e){

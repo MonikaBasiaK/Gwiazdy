@@ -1,6 +1,2 @@
-{"identity":"Gwiazdozbior","gwiazdy":"wwwww","name":"gwiazd1"}
-{"identity":"Gwiazdozbior","gwiazdy":"sass","name":"gwiazd2"}
-{"identity":"Gwiazdozbior","gwiazdy":"wqkewq","name":"gwiazd3"}
-{"galaktyki":"eee","identity":"Grupa","name":"grup1"}
-{"identity":"Gromada","rozmiar":2232,"name":"grom1"}
-{"identity":"SuperGromada","opis":"eeeeeeeee","name":"suepr4"}
+{"name":"aaa","id":"Gwiazdozbior","gruboscS":0,"szacowana_ilosc_gwiazdS":0,"rozmiarS":0,"attributes":{"ID_GW":"Gwiazdozbior","GWIAZDY":"aaaa"}}
+{"name":"aaa","id":"Gwiazdozbior","gruboscS":0,"szacowana_ilosc_gwiazdS":0,"rozmiarS":0,"attributes":{"ID_GW":"Gwiazdozbior","GWIAZDY":"aaaasdasdasd"}}

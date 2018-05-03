@@ -9,7 +9,8 @@ public class Gwiazda extends Obiekt{
 	public static final String gwiazdozbior = "GW";
 	static final String identity = "ID_GW"; 
 	
-	
+	public Gwiazda() {}
+
 	public Gwiazda(String nazwa, float masa,  double srednica, int wiek, 
 			String obiekt_glowny, float okres_obiegu, String gwiazdozbior) throws SQLException
 	{
